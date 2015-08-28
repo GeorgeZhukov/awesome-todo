@@ -9,6 +9,9 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem "bower-rails", "~> 0.10.0"
+gem 'angular-rails-templates'
+gem "haml-rails", "~> 0.9"
+gem 'sprockets', '2.12.3'
 
 group :development, :test do
   gem 'byebug'
