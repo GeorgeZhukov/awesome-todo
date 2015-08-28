@@ -19,6 +19,7 @@ group :development, :test do
   gem "better_errors"
   gem "binding_of_caller"
   gem 'fuubar'
+  gem 'database_cleaner'
 end
 
 group :development do

@@ -22,7 +22,7 @@ default: &default
   pool: 5
   username: rails
   password: rails
-  database: todo
+  host: 127.0.0.1
 
 development:
   <<: *default
