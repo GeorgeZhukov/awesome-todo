@@ -1,6 +1,7 @@
+asset 'bootstrap-sass-official'
 asset 'angular'
 asset 'angular-route'
-asset 'bootstrap-sass-official'
 asset 'angular-cookie'
+asset 'angularjs-toaster'
 asset 'ng-token-auth'
 # vim: ft=ruby

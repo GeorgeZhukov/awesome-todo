@@ -16,6 +16,7 @@
 //= require angular-route/angular-route
 //= require angular-cookie/angular-cookie
 //= require ng-token-auth/dist/ng-token-auth
+//= require angularjs-toaster/toaster
 //= require angular-rails-templates
 //= require_tree ./templates
 //= require_tree .

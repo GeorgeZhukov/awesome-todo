@@ -1,3 +1,4 @@
 %div{"ng-app" => "app"}
-  .view-container
+  .view-container{"ng-controller"=>"pageCtrl"}
+    %toaster-container
     .view-frame.animate-view{"ng-view" => ""}
