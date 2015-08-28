@@ -23,10 +23,9 @@ app.config([ '$routeProvider',
 app.controller('IndexCtrl', ['$scope', '$auth',
  ($scope, $auth)->
    $scope.test = ->
-     $auth.submitLogin(
-       email: "scofield.cross@gmail.com"
-       password: "password"
-     ).then (resp)->
+     $auth
+     .authenticate('facebook')
+     .then (resp)->
        alert("success")
        console.log(resp)
 
