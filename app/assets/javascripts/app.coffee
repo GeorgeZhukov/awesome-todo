@@ -19,14 +19,3 @@ app.config([ '$routeProvider',
         controller: 'IndexCtrl'
       )
 ])
-
-app.controller('IndexCtrl', ['$scope', '$auth',
- ($scope, $auth)->
-   $scope.test = ->
-     $auth
-     .authenticate('facebook')
-     .then (resp)->
-       alert("success")
-       console.log(resp)
-
-])
