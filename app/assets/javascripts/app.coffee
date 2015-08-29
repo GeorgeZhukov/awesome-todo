@@ -22,6 +22,13 @@ angular.module('app', ['templates', 'ui.router', 'ng-token-auth', 'toaster', ])
           templateUrl: 'signup.html',
           controller: 'signUpCtrl'
 
+        .state 'projects',
+          url: '/projects',
+          templateUrl: 'projects.html',
+          controller: 'projectsCtrl',
+          resolve:
+            auth: ['$auth', ($auth)-> $auth.validateUser()]
+
   ])
 
 

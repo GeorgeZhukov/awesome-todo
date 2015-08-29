@@ -21,7 +21,7 @@ RSpec.feature "Authorizations", type: :feature, js: true do
       click_button "Sign In"
     end
     expect(page).to have_content "You have successfully logged in."
-
+    visit '/#/sign-in'
     click_button "Sign Out"
     expect(page).to have_content "You have logged out."
   end
