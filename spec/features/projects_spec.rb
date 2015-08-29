@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "Projects", type: :feature, js: true do
   given(:user) { create :user }
 
-  scenario "A user can see the list of projects" do
+  xscenario "A user can see the list of projects" do
     project = create :project, user: user
     visit '/#/sign-in'
     within "#sign-in-form" do
@@ -11,7 +11,7 @@ RSpec.feature "Projects", type: :feature, js: true do
       fill_in "Password", with: "password"
       click_button "Sign In"
     end
-        
+
     expect(page).to have_content project.title
   end
 

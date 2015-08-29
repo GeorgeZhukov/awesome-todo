@@ -35,10 +35,10 @@ angular.module('app')
              toaster.error msg
   ]
 
-  .controller 'projectsCtrl', ['$scope', '$auth', 'Restangular', 'toaster',
-     ($scope, $auth, Restangular, toaster) ->
-       Restangular.all('projects').getList().then(
-         (projects)->
-           $scope.projects = projects
-       )
-  ]
+#  .controller 'projectsCtrl', ['$scope', '$auth', 'Restangular', 'toaster',
+#     ($scope, $auth, Restangular, toaster) ->
+#       Restangular.all('projects').getList().then(
+#         (projects)->
+#           $scope.projects = projects
+#       )
+#  ]
