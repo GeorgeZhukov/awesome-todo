@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "Projects", type: :feature, js: true do
   given(:user) { create :user }
 
-  xscenario "A user can see the list of projects" do
+  scenario "A user can see the list of projects" do
     project = create :project, user: user
     visit '/#/sign-in'
     within "#sign-in-form" do
