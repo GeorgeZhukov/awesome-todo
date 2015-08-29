@@ -13,8 +13,6 @@ RSpec.feature "Authorizations", type: :feature, js: true do
     expect(page).to have_content "You have successfully logged in."
   end
 
-  scenario "A user can sign in via facebook"
-
   scenario "A user can sign out" do
     visit root_path
     within "#sign-in-form" do
@@ -23,7 +21,7 @@ RSpec.feature "Authorizations", type: :feature, js: true do
       click_button "Sign In"
     end
     expect(page).to have_content "You have successfully logged in."
-    
+
     click_button "Sign Out"
     expect(page).to have_content "You have logged out."
   end

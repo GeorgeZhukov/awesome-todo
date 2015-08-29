@@ -1,6 +1,6 @@
 asset 'bootstrap-sass-official'
 asset 'angular'
-asset 'angular-route'
+asset 'angular-ui-router'
 asset 'angular-cookie'
 asset 'angularjs-toaster'
 asset 'ng-token-auth'

@@ -1,41 +1,22 @@
-app = angular.module('app',[
-  'templates',
-  'ngRoute',
-  'ng-token-auth',
-  'toaster',
-])
+angular.module('app',['templates', 'ui.router', 'ng-token-auth', 'toaster', ])
 
-app.config([ '$authProvider',
-  ($authProvider)->
-    $authProvider.configure(
-      apiUrl: ""
-    )
-])
-
-app.config([ '$routeProvider',
-  ($routeProvider)->
-    $routeProvider
-      .when('/',
-        templateUrl: "index.html"
-        controller: 'pageCtrl'
+  .config([ '$authProvider',
+    ($authProvider)->
+      $authProvider.configure(
+        apiUrl: ""
       )
-])
+  ])
 
-app.controller 'pageCtrl', ['$scope', '$auth', 'toaster',
-  ($scope, $auth, toaster)->
-    $scope.$on('auth:logout-success', (ev, data) ->
-      toaster.success 'You have logged out.'
-    )
+  .config([ '$stateProvider', '$urlRouterProvider',
+    ($stateProvider, $urlRouterProvider)->
+      $urlRouterProvider.otherwise "/"
 
-    $scope.login = ->
-      console.log $scope.loginForm
-      $auth.submitLogin($scope.loginForm)
-      .then (resp) ->
-        toaster.success 'You have successfully logged in.'
-      .catch (resp) ->
-        angular.forEach resp.errors, (msg) ->
-          toaster.error msg
+      $stateProvider
+        .state 'index',
+          url: '/'
+          templateUrl: 'index.html'
+          controller: 'pageCtrl'
 
-    $scope.logout = ->
-      $auth.signOut()
-]
+  ])
+
+
