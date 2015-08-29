@@ -39,12 +39,10 @@ angular.module('app')
      ($scope, $auth, Restangular, toaster) ->
        Restangular.all('projects').getList().then(
          (projects)->
-           $scope.projects = projects
-           projects[0].all('tasks').getList().then(
-             (tasks)->
-               $scope.tasks = tasks
+           _.map(projects,
+             (project)->
+               project.tasks = project.all('tasks').getList().$object
            )
+           $scope.projects = projects
        )
-
-
   ]

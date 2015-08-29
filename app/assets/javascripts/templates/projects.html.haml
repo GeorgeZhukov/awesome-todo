@@ -3,4 +3,4 @@
     .project{:id=>"project_{{project.id}}", "ng-repeat"=>"project in projects"}
       %h1 {{ project.title }}
       %ul.tasks
-        %li.task{"ng-repeat"=>"task in tasks"} {{ task.title }}
+        %li.task{"ng-repeat"=>"task in project.tasks"} {{ task.title }}
