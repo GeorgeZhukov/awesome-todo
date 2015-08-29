@@ -21,19 +21,24 @@ angular.module('app')
             toaster.error msg
   ]
 
-  .controller 'signUpCtrl', ['$scope', '$auth', 'toaster',
-     ($scope, $auth, toaster) ->
+  .controller 'signUpCtrl', ['$scope', '$auth', '$state', 'toaster',
+     ($scope, $auth, $state, toaster) ->
        $scope.signUp = ->
          $auth.submitRegistration($scope.signUpForm)
          .then (resp) ->
            toaster.success 'You have successfully registered.'
+           $state.go 'projects'
 
          .catch (resp) ->
+           console.log resp
            angular.forEach resp.data.errors.full_messages, (msg) ->
              toaster.error msg
   ]
 
-  .controller 'projectsCtrl', ['$scope', '$auth', 'toaster',
-     ($scope, $auth, toaster) ->
-       return
+  .controller 'projectsCtrl', ['$scope', '$auth', 'Restangular', 'toaster',
+     ($scope, $auth, Restangular, toaster) ->
+       Restangular.all('projects').getList().then(
+         (projects)->
+           $scope.projects = projects
+       )
   ]

@@ -3,5 +3,6 @@ asset 'angular'
 asset 'angular-ui-router'
 asset 'angular-cookie'
 asset 'angularjs-toaster'
+asset 'restangular'
 asset 'ng-token-auth'
 # vim: ft=ruby

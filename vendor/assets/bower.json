@@ -6,6 +6,7 @@
     "angular-ui-router": "latest",
     "angular-cookie": "latest",
     "angularjs-toaster": "latest",
+    "restangular": "latest",
     "ng-token-auth": "latest"
   }
 }

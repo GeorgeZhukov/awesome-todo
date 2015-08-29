@@ -1,1 +1,3 @@
 .view-container{"ng-controller"=>"projectsCtrl"}
+  %ul.projects
+    %li.project{"ng-repeat"=>"project in projects"} {{ project.title }}

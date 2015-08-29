@@ -12,11 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require lodash/lodash
 //= require angular/angular
 //= require angular-ui-router/release/angular-ui-router
 //= require angular-cookie/angular-cookie
 //= require ng-token-auth/dist/ng-token-auth
 //= require angularjs-toaster/toaster
+//= require restangular/dist/restangular
 //= require angular-rails-templates
 //= require_tree ./templates
 //= require_tree .

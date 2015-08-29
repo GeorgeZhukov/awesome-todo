@@ -1,10 +1,16 @@
-angular.module('app', ['templates', 'ui.router', 'ng-token-auth', 'toaster', ])
+angular.module('app', ['templates', 'ui.router', 'restangular', 'ng-token-auth', 'toaster', ])
 
   .config([ '$authProvider',
     ($authProvider)->
       $authProvider.configure(
         apiUrl: ""
       )
+  ])
+
+  .config([ 'RestangularProvider',
+    (RestangularProvider) ->
+      RestangularProvider.setBaseUrl('/');
+      RestangularProvider.setRequestSuffix('.json');
   ])
 
   .config([ '$stateProvider', '$urlRouterProvider',
