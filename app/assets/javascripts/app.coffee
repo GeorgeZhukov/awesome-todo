@@ -15,7 +15,7 @@ angular.module('app', ['templates', 'ui.router', 'restangular', 'ng-token-auth',
 
   .config([ '$stateProvider', '$urlRouterProvider',
     ($stateProvider, $urlRouterProvider)->
-      $urlRouterProvider.otherwise "/"
+      $urlRouterProvider.otherwise "/sign-in"
 
       $stateProvider
         .state 'signin',
