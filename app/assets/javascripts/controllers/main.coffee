@@ -40,5 +40,11 @@ angular.module('app')
        Restangular.all('projects').getList().then(
          (projects)->
            $scope.projects = projects
+           projects[0].all('tasks').getList().then(
+             (tasks)->
+               $scope.tasks = tasks
+           )
        )
+
+
   ]
