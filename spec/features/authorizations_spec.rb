@@ -4,7 +4,7 @@ RSpec.feature "Authorizations", type: :feature, js: true do
   given(:user) { create :user }
 
   scenario "A user can sign in using email and password" do
-    visit root_path
+    visit '/#/sign-in'
     within "#sign-in-form" do
       fill_in "E-mail", with: user.email
       fill_in "Password", with: "password"
@@ -14,7 +14,7 @@ RSpec.feature "Authorizations", type: :feature, js: true do
   end
 
   scenario "A user can sign out" do
-    visit root_path
+    visit '/#/sign-in'
     within "#sign-in-form" do
       fill_in "E-mail", with: user.email
       fill_in "Password", with: "password"

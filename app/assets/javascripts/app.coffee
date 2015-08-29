@@ -1,4 +1,4 @@
-angular.module('app',['templates', 'ui.router', 'ng-token-auth', 'toaster', ])
+angular.module('app', ['templates', 'ui.router', 'ng-token-auth', 'toaster', ])
 
   .config([ '$authProvider',
     ($authProvider)->
@@ -12,10 +12,15 @@ angular.module('app',['templates', 'ui.router', 'ng-token-auth', 'toaster', ])
       $urlRouterProvider.otherwise "/"
 
       $stateProvider
-        .state 'index',
-          url: '/'
-          templateUrl: 'index.html'
-          controller: 'pageCtrl'
+        .state 'signin',
+          url: '/sign-in'
+          templateUrl: 'signin.html'
+          controller: 'signInCtrl'
+
+        .state 'signup',
+          url: '/sign-up',
+          templateUrl: 'signup.html',
+          controller: 'signUpCtrl'
 
   ])
 
