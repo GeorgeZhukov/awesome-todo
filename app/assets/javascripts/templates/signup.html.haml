@@ -1,12 +1,11 @@
-.view-container{"ng-controller"=>"signUpCtrl"}
-  %form#sign-in-form{"ng-submit"=>"signUp()", "ng-init"=>"signUpForm = {email: '', password: '', password_confirmation: ''}"}
-    .form-group
-      %label{:for => "id_email"} E-mail
-      %input#id_email.form-control{:placeholder => "Email", :type => "email", "ng-model" => "signUpForm.email"}/
-    .form-group
-      %label{:for => "id_password"} Password
-      %input#id_password.form-control{:placeholder => "Password", :type => "password", "ng-model" => "signUpForm.password"}/
-    .form-group
-      %label{:for => "id_confirmation"} Confirmation
-      %input#id_confirmation.form-control{:placeholder => "Confirmation", :type => "password", "ng-model" => "signUpForm.password_confirmation"}/
-    %button.btn.btn-default{:type => "submit"} Sign Up
+%form#sign-in-form{"ng-submit"=>"signUp()", "ng-init"=>"signUpForm = {email: '', password: '', password_confirmation: ''}"}
+  .form-group
+    %label{:for => "id_email"} E-mail
+    %input#id_email.form-control{:placeholder => "Email", :type => "email", "ng-model" => "signUpForm.email"}/
+  .form-group
+    %label{:for => "id_password"} Password
+    %input#id_password.form-control{:placeholder => "Password", :type => "password", "ng-model" => "signUpForm.password"}/
+  .form-group
+    %label{:for => "id_confirmation"} Confirmation
+    %input#id_confirmation.form-control{:placeholder => "Confirmation", :type => "password", "ng-model" => "signUpForm.password_confirmation"}/
+  %button.btn.btn-default{:type => "submit"} Sign Up

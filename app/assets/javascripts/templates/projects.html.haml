@@ -1,6 +1,7 @@
-.view-container{"ng-controller"=>"projectsCtrl"}
-  .projects
-    .project{:id=>"project_{{project.id}}", "ng-repeat"=>"project in projects"}
-      %h1 {{ project.title }}
-      %ul.tasks
-        %li.task{"ng-repeat"=>"task in project.tasks"} {{ task.title }}
+.projects
+  .project{:id=>"project_{{project.id}}", "ng-repeat"=>"project in projects"}
+    %h1 {{ project.title }}
+    %ul.tasks
+      %li.task{"ng-repeat"=>"task in project.tasks"} {{ task.title }}
+
+%button.btn.btn-warning{"ng-click"=>"signOut()"} Sign Out

@@ -1,16 +1,10 @@
-angular.module('app', ['templates', 'ui.router', 'restangular', 'ng-token-auth', 'toaster', ])
+angular.module('app', ['templates', 'controllers', 'ui.router', 'ng-token-auth', ])
 
   .config([ '$authProvider',
     ($authProvider)->
       $authProvider.configure(
         apiUrl: ""
       )
-  ])
-
-  .config([ 'RestangularProvider',
-    (RestangularProvider) ->
-      RestangularProvider.setBaseUrl('/');
-      RestangularProvider.setRequestSuffix('.json');
   ])
 
   .config([ '$stateProvider', '$urlRouterProvider',
@@ -21,17 +15,17 @@ angular.module('app', ['templates', 'ui.router', 'restangular', 'ng-token-auth',
         .state 'signin',
           url: '/sign-in'
           templateUrl: 'signin.html'
-          controller: 'signInCtrl'
+          controller: 'SignInCtrl'
 
         .state 'signup',
           url: '/sign-up',
           templateUrl: 'signup.html',
-          controller: 'signUpCtrl'
+          controller: 'SignUpCtrl'
 
         .state 'projects',
           url: '/projects',
           templateUrl: 'projects.html',
-          controller: 'projectsCtrl',
+          controller: 'ProjectsCtrl',
           resolve:
             auth: ['$auth', ($auth)-> $auth.validateUser()]
 
