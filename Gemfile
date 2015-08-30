@@ -27,6 +27,9 @@ group :development, :test do
   gem "binding_of_caller"
   gem 'fuubar'
   gem 'database_cleaner'
+  gem "teaspoon-jasmine"
+  gem 'phantomjs'
+  gem "guard-teaspoon"
 end
 
 group :development do
