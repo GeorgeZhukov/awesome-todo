@@ -9,7 +9,6 @@ class ProjectsController < ApplicationController
 
   def create
     @project = current_user.projects.create(project_params)
-    @project.save
     redirect_to project_path(@project, format: :json)
   end
 

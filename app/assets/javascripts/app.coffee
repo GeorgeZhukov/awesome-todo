@@ -1,4 +1,4 @@
-angular.module('app', ['templates', 'controllers', 'ui.router', 'ng-token-auth', ])
+angular.module('app', ['templates', 'controllers', 'ui.router', 'ng-token-auth', 'restangular',  ])
 
   .config([ '$authProvider',
     ($authProvider)->
@@ -36,6 +36,7 @@ angular.module('app', ['templates', 'controllers', 'ui.router', 'ng-token-auth',
           resolve:
             auth: ['$auth', ($auth)-> $auth.validateUser()]
 
+
   ])
 
   .directive 'project', ->
@@ -44,3 +45,16 @@ angular.module('app', ['templates', 'controllers', 'ui.router', 'ng-token-auth',
   .directive 'task', ->
     templateUrl: "_task.html"
 
+  .controller 'ProjectCtrl', ['$scope', '$state', 'Restangular', ($scope, $state, Restangular) ->
+    updateTasks = ->
+      $scope.tasks = $scope.project.all('tasks').getList().$object
+
+    $scope.addTask = ->
+      $scope.project.all('tasks').post($scope.newTask).then(updateTasks)
+
+    $scope.removeTask = (task) ->
+      task.remove().then(updateTasks)
+
+    updateTasks()
+
+  ]
