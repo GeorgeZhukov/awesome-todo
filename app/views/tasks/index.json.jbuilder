@@ -1,1 +1,1 @@
-json.array! @tasks, :id, :title
+json.array! @tasks, partial: "task", as: :task

@@ -8,6 +8,8 @@ describe User do
     subject { Ability.new user }
 
     let(:another_user) { create :user }
+    let(:another_project) { create :project, user: another_user}
+    let(:another_task) { create :task, project: another_project }
 
     context "project" do
       it { should be_able_to :manage, Project.new(user: user) }
@@ -16,10 +18,17 @@ describe User do
 
     context "task" do
       let(:project) { create :project, user: user }
-      let(:another_project) { create :project, user: another_user}
 
       it { should be_able_to :manage, Task.new(project: project) }
       it { should_not be_able_to :manage, Task.new(project: another_project) }
+    end
+
+    context "comment" do
+      let(:project) { create :project, user: user }
+      let(:task) { create :task, project: project }
+
+      it { should be_able_to :manage, Comment.new(task: task) }
+      it { should_not be_able_to :manage, Comment.new(task: another_task) }
     end
   end
 end

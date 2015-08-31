@@ -45,6 +45,9 @@ angular.module('app', ['templates', 'controllers', 'ui.router', 'ng-token-auth',
   .directive 'task', ->
     templateUrl: "_task.html"
 
+  .directive 'comment', ->
+    templateUrl: "_comment.html"
+
   .controller 'ProjectCtrl', ['$scope', '$state', 'Restangular', ($scope, $state, Restangular) ->
     updateTasks = ->
       $scope.tasks = $scope.project.all('tasks').getList().$object
@@ -57,4 +60,16 @@ angular.module('app', ['templates', 'controllers', 'ui.router', 'ng-token-auth',
 
     updateTasks()
 
+  ]
+
+  .controller 'TaskCtrl', ['$scope', '$state', 'Restangular', ($scope, $state, Restangular) ->
+    updateComments = ->
+      $scope.comments = Restangular.one('tasks', $scope.task.id).all('comments').getList().$object
+
+    $scope.addComment = ->
+      Restangular.one('tasks', $scope.task.id).all('comments').post($scope.newComment).then(updateComments)
+
+    $scope.removeComment = (comment) ->
+      comment.remove().then(updateComments)
+    updateComments()
   ]
