@@ -1,15 +1,14 @@
 class ProjectsController < ApplicationController
+  load_and_authorize_resource
+
   def index
-    @projects = Project.all
   end
 
   def show
-    @project = Project.find(params[:id])
   end
 
   def create
     @project = current_user.projects.create(project_params)
-    @project.user = User.first
     @project.save
     redirect_to project_path(@project, format: :json)
   end

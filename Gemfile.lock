@@ -94,6 +94,7 @@ GEM
       terminal-table (~> 1.4)
     builder (3.2.2)
     byebug (6.0.2)
+    cancancan (1.12.0)
     capybara (2.5.0)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -372,6 +373,7 @@ DEPENDENCIES
   bower-rails (~> 0.10.0)
   brakeman
   byebug
+  cancancan (~> 1.10)
   capybara
   capybara-screenshot
   codeclimate-test-reporter
