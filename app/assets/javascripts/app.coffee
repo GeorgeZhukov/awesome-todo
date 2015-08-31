@@ -29,6 +29,13 @@ angular.module('app', ['templates', 'controllers', 'ui.router', 'ng-token-auth',
           resolve:
             auth: ['$auth', ($auth)-> $auth.validateUser()]
 
+        .state 'new_project',
+          url: '/projects/new',
+          templateUrl: 'new_project.html',
+          controller: 'NewProjectCtrl',
+          resolve:
+            auth: ['$auth', ($auth)-> $auth.validateUser()]
+
   ])
 
   .directive 'project', ->

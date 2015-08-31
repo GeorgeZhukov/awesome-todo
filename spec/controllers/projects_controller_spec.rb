@@ -7,4 +7,11 @@ RSpec.describe ProjectsController, type: :controller do
       expect(assigns(:projects)).not_to be_nil
     end
   end
+
+  describe "POST #index" do
+    it "" do
+      project = attributes_for :project
+      post :index, format: :json, project: project
+    end
+  end
 end

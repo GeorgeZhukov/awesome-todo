@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  resources :projects do
-    resources :tasks
+  resources :projects, only: [:index, :show, :create] do
+    resources :tasks, only: [:index]
   end
 end

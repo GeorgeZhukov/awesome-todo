@@ -33,7 +33,7 @@ angular.module('controllers', ['restangular', 'toaster', 'ng-token-auth',])
         toaster.error msg
 ]
 
-.controller 'ProjectsCtrl', ['$scope', '$auth', 'Restangular', 'toaster', ($scope, $auth, Restangular, toaster) ->
+.controller 'ProjectsCtrl', ['$scope', '$auth', '$state', 'Restangular', 'toaster', ($scope, $auth, $state, Restangular, toaster) ->
   Restangular.all('projects').getList().then(
     (projects)->
       _.map(projects,
@@ -42,4 +42,17 @@ angular.module('controllers', ['restangular', 'toaster', 'ng-token-auth',])
       )
       $scope.projects = projects
   )
+
+  $scope.new_project = ->
+    $state.go 'new_project'
+]
+
+.controller 'NewProjectCtrl', ['$scope', 'Restangular', '$state', 'toaster', ($scope, Restangular, $state, toaster) ->
+  $scope.create = ->
+    Restangular.service('projects').post($scope.project).then(
+      ->
+        toaster.success "The project has been successfully created."
+        $state.go 'projects'
+    )
+
 ]

@@ -1,1 +1,1 @@
-json.array! @projects, :id, :title
+json.array! @projects, partial: 'project', as: :project
