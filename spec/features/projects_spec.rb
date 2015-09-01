@@ -1,27 +1,19 @@
 require 'rails_helper'
 
 RSpec.feature "Projects", type: :feature, js: true do
+  include FeatureHelper
+
   given(:user) { create :user }
   given!(:project) { create :project, user: user }
 
   scenario "A user can see the list of projects" do
-    visit '/#/sign-in'
-    within "#sign-in-form" do
-      fill_in "E-mail", with: user.email
-      fill_in "Password", with: "password"
-      click_button "Sign In"
-    end
+    login(user)
 
     expect(page).to have_content project.title
   end
 
   scenario "A user can create a new project" do
-    visit '/#/sign-in'
-    within "#sign-in-form" do
-      fill_in "E-mail", with: user.email
-      fill_in "Password", with: "password"
-      click_button "Sign In"
-    end
+    login(user)
 
     click_button "Add a new project"
     project_attrs = attributes_for :project
@@ -34,13 +26,8 @@ RSpec.feature "Projects", type: :feature, js: true do
   scenario "A user can update the project title"
 
   scenario "A user can remove the project" do
-    visit '/#/sign-in'
-    within "#sign-in-form" do
-      fill_in "E-mail", with: user.email
-      fill_in "Password", with: "password"
-      click_button "Sign In"
-    end
-    # create :project, user: user
+    login(user)
+
     click_button "Remove project"
     expect(page).to have_content "The project has been successfully removed."
   end

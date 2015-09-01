@@ -1,18 +1,14 @@
 require 'rails_helper'
 
 RSpec.feature "Comments", type: :feature do
+  include FeatureHelper
 
   given(:user) { create :user }
   given!(:project) { create :project, user: user }
   given!(:task) { create :task, project: project }
 
   xscenario "A user can add comment to task" do
-    visit '/#/sign-in'
-    within "#sign-in-form" do
-      fill_in "E-mail", with: user.email
-      fill_in "Password", with: "password"
-      click_button "Sign In"
-    end
+    login
 
     comment_attrs = attributes_for :comment
 

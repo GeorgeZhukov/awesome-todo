@@ -1,29 +1,5 @@
 .projects
-  .project{"ng-controller"=>"ProjectCtrl", "ng-repeat"=>"project in projects"}
-    %h1=" {{ project.title }} "
-    %button.btn.btn-sm.btn-danger{"ng-click"=>"rm(project)"} Remove project
-    %form.form{"ng-submit"=>"addTask()", "ng-init"=>"newTask = {}"}
-      .form-group
-        %label
-          New task
-          %input{"ng-model"=>"newTask.title"}
-      %button.btn.btn-sm.btn-primary{:type=>"submit"} Add
-    %ul.tasks
-      %li.task{"ng-repeat"=>"task in tasks", "ng-controller"=>"TaskCtrl"}
-        %button.btn.btn-xs.btn-danger{"ng-click"=>"removeTask(task)"} Remove
-
-        .comments
-          .comment{"ng-repeat"=>"comment in comments"}
-            {{ comment.text }}
-            %button.btn.btn-xs.btn-danger{"ng-click"=>"removeComment(comment)"} Remove comment
-            %br
-
-        %form.form{"ng-init"=>"newComment = {}", "ng-submit"=>"addComment()"}
-          .form-group
-            %label
-              Comment text
-              %input{"ng-model"=>"newComment.text"}
-          %button.btn.btn-xs.btn-default{:type=>"submit"} Add comment
+  %project{"ng-controller"=>"ProjectCtrl", "ng-repeat"=>"project in projects"}
 
 %button.btn.btn-warning{"ng-click"=>"signOut()"} Sign Out
 %button.btn.btn-default{"ng-click"=>"new_project()"} Add a new project
