@@ -1,4 +1,4 @@
-angular.module('app', ['templates', 'controllers', 'ui.router', 'ng-token-auth', 'restangular',])
+angular.module('app', ['ng-rails-csrf', 'templates', 'controllers', 'directives', 'ui.router', 'ng-token-auth',])
 
 .config(['$authProvider',
     ($authProvider)->
@@ -39,12 +39,5 @@ angular.module('app', ['templates', 'controllers', 'ui.router', 'ng-token-auth',
 
   ])
 
-.directive 'project', ->
-  templateUrl: "_project.html"
 
-.directive 'task', ->
-  templateUrl: "_task.html"
-
-.directive 'comment', ->
-  templateUrl: "_comment.html"
 

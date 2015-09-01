@@ -15,7 +15,7 @@ gem 'angular-rails-templates'
 gem "haml-rails", "~> 0.9"
 gem 'sprockets', '2.12.3'
 gem 'devise_token_auth'
-gem 'angular_rails_csrf'
+gem 'ng-rails-csrf'
 gem 'omniauth-facebook'
 
 
