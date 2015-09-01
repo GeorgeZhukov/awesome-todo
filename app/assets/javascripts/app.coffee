@@ -1,4 +1,4 @@
-angular.module('app', ['ng-rails-csrf', 'templates', 'controllers', 'directives', 'ui.router', 'ng-token-auth',])
+angular.module('app', ['templates', 'controllers', 'directives', 'ui.router', ])
 
   .config(['$authProvider',
     ($authProvider)->

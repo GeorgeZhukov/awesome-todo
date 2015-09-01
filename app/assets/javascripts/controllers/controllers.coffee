@@ -15,6 +15,10 @@ angular.module('controllers', ['restangular', 'toaster', 'ng-token-auth',])
         toaster.success 'You have successfully logged in.'
         $state.go 'projects'
 
+      $scope.$on 'auth:oauth-registration', (ev, user) ->
+        toaster.success 'You have successfully logged in.'
+        $state.go 'projects'
+
       $scope.$on 'auth:registration-email-success', (ev, message) ->
         toaster.success 'You have successfully registered.'
         $state.go 'projects'
@@ -22,6 +26,9 @@ angular.module('controllers', ['restangular', 'toaster', 'ng-token-auth',])
 
   .controller 'SignInCtrl', ['$scope', '$auth', '$state', 'toaster',
     ($scope, $auth, $state, toaster)->
+      $scope.abc = ->
+        $auth.authenticate('facebook')
+
       $scope.login = ->
         $auth.submitLogin($scope.loginForm)
         .catch (resp) ->
