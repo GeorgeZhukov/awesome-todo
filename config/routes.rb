@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:index, :create, :destroy]
   end
 
-  resources :comments do
-    resources :attached_files
+  resources :comments, only: [:show] do
+    resources :attached_files, only: [:index]
   end
 end
