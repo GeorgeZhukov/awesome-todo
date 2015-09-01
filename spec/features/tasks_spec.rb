@@ -18,7 +18,7 @@ RSpec.feature "Tasks", type: :feature, js: true do
 
     task_attrs = attributes_for :task
     fill_in "New task", with: task_attrs[:title]
-    click_button "Add"
+    click_button "Create task"
     expect(page).to have_content task_attrs[:title]
   end
 

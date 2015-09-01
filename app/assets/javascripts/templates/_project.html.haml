@@ -5,6 +5,6 @@
     %label
       New task
       %input{"ng-model"=>"newTask.title"}
-  %button.btn.btn-sm.btn-primary{:type=>"submit"} Add
+  %button.btn.btn-sm.btn-primary{:type=>"submit"} Create task
 %ul.tasks
-  %task{"ng-repeat"=>"task in tasks", "ng-controller"=>"TaskCtrl"}
+  %task{"ng-repeat"=>"task in tasks", "ng-controller"=>"TaskController"}

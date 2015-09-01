@@ -15,24 +15,24 @@ angular.module('app', ['templates', 'controllers', 'directives', 'ui.router', ])
       .state 'signin',
         url: '/sign-in'
         templateUrl: 'signin.html'
-        controller: 'SignInCtrl'
+        controller: 'SignInController'
 
       .state 'signup',
         url: '/sign-up',
         templateUrl: 'signup.html',
-        controller: 'SignUpCtrl'
+        controller: 'SignUpController'
 
       .state 'projects',
         url: '/projects',
         templateUrl: 'projects.html',
-        controller: 'ProjectsCtrl',
+        controller: 'ProjectsController',
         resolve:
           auth: ($auth) -> $auth.validateUser()
 
       .state 'new_project',
         url: '/projects/new',
         templateUrl: 'new_project.html',
-        controller: 'NewProjectCtrl',
+        controller: 'NewProjectController',
         resolve:
           auth: ($auth) -> $auth.validateUser()
 

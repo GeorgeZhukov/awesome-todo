@@ -20,4 +20,16 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  comment:
+    remove_comment: "Remove comment"
+
+  project:
+    remove_project: "Remove project"
+    new_task: "New task"
+    create_task: "Create"
+
+  task:
+    remove_task: "Remove"
+    add_comment: "Add comment"
+    comment_text: "Comment text"
+

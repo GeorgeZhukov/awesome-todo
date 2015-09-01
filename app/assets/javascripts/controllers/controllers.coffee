@@ -5,18 +5,18 @@ angular.module('controllers', ['restangular', 'toaster', 'ng-token-auth',])
       RestangularProvider.setRequestSuffix('.json');
     ])
 
-  .controller 'PageCtrl', ['$scope', '$auth', '$state', 'toaster',
+  .controller 'PageController', ['$scope', '$auth', '$state', 'toaster',
     ($scope, $auth, $state, toaster) ->
       $scope.$on 'auth:logout-success', (resp) ->
         toaster.success 'You have logged out.'
         $state.go 'signin'
 
       $scope.$on 'auth:login-success', (ev, user) ->
-        toaster.success 'You have successfully logged in.'
+        toaster.success 'You have successfully logged in by email.'
         $state.go 'projects'
 
       $scope.$on 'auth:oauth-registration', (ev, user) ->
-        toaster.success 'You have successfully logged in.'
+        toaster.success 'You have successfully logged in by facebook.'
         $state.go 'projects'
 
       $scope.$on 'auth:registration-email-success', (ev, message) ->
@@ -24,10 +24,8 @@ angular.module('controllers', ['restangular', 'toaster', 'ng-token-auth',])
         $state.go 'projects'
   ]
 
-  .controller 'SignInCtrl', ['$scope', '$auth', '$state', 'toaster',
+  .controller 'SignInController', ['$scope', '$auth', '$state', 'toaster',
     ($scope, $auth, $state, toaster)->
-      $scope.abc = ->
-        $auth.authenticate('facebook')
 
       $scope.login = ->
         $auth.submitLogin($scope.loginForm)
@@ -36,7 +34,7 @@ angular.module('controllers', ['restangular', 'toaster', 'ng-token-auth',])
             toaster.error msg
   ]
 
-  .controller 'SignUpCtrl', ['$scope', '$auth', '$state', 'toaster',
+  .controller 'SignUpController', ['$scope', '$auth', '$state', 'toaster',
     ($scope, $auth, $state, toaster) ->
       $scope.signUp = ->
         $auth.submitRegistration($scope.signUpForm)
@@ -45,7 +43,7 @@ angular.module('controllers', ['restangular', 'toaster', 'ng-token-auth',])
             toaster.error msg
   ]
 
-  .controller 'ProjectsCtrl', ['$scope', '$auth', '$state', 'Restangular', 'toaster',
+  .controller 'ProjectsController', ['$scope', '$auth', '$state', 'Restangular', 'toaster',
     ($scope, $auth, $state, Restangular, toaster) ->
       updateProjects = ->
         $scope.projects = Restangular.all('projects').getList().$object;
@@ -63,7 +61,7 @@ angular.module('controllers', ['restangular', 'toaster', 'ng-token-auth',])
       updateProjects()
   ]
 
-  .controller 'NewProjectCtrl', ['$scope', 'Restangular', '$state', 'toaster',
+  .controller 'NewProjectController', ['$scope', 'Restangular', '$state', 'toaster',
     ($scope, Restangular, $state, toaster) ->
       $scope.create = ->
         Restangular.service('projects').post($scope.project).then(
@@ -73,7 +71,7 @@ angular.module('controllers', ['restangular', 'toaster', 'ng-token-auth',])
         )
   ]
 
-  .controller 'ProjectCtrl', ['$scope', '$state', 'Restangular', 'toaster',
+  .controller 'ProjectController', ['$scope', '$state', 'Restangular', 'toaster',
     ($scope, $state, Restangular, toaster) ->
       updateTasks = ->
         $scope.tasks = $scope.project.all('tasks').getList().$object
@@ -91,7 +89,7 @@ angular.module('controllers', ['restangular', 'toaster', 'ng-token-auth',])
 
   ]
 
-  .controller 'TaskCtrl', ['$scope', '$state', 'Restangular',
+  .controller 'TaskController', ['$scope', '$state', 'Restangular',
     ($scope, $state, Restangular) ->
       updateComments = ->
         $scope.comments = Restangular.one('tasks', $scope.task.id).all('comments').getList().$object

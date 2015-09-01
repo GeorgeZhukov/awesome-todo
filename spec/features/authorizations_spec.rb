@@ -5,12 +5,12 @@ RSpec.feature "Authorizations", type: :feature, js: true do
 
   scenario "A user can sign in using email and password" do
     login
-    expect(page).to have_content "You have successfully logged in."
+    expect(page).to have_content "You have successfully logged in by email."
   end
 
   scenario "A user can sign out" do
     login
-    expect(page).to have_content "You have successfully logged in."
+    expect(page).to have_content "You have successfully logged in by email."
     click_button "Sign Out"
     expect(page).to have_content "You have logged out."
   end
