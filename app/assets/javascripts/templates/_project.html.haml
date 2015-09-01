@@ -1,9 +1,0 @@
-%h1 {{ project.title }}
-%form.form{"ng-submit"=>"addTask()", "ng-init"=>"newTask = {}"}
-  .form-group
-    %label
-      New task
-      %input{"ng-model"=>"newTask.title"}
-  %button.btn.btn-sm.btn-primary{:type=>"submit"} Add
-%ul.tasks
-  %task{"ng-repeat"=>"task in tasks", "ng-controller"=>"TaskCtrl", :style=>"display: block;"}

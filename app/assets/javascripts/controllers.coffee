@@ -34,6 +34,46 @@ angular.module('controllers', ['restangular', 'toaster', 'ng-token-auth',])
   ]
 
   .controller 'ProjectsCtrl', ['$scope', '$auth', 'Restangular', 'toaster', ($scope, $auth, Restangular, toaster) ->
-    $scope.projects = Restangular.all('projects').getList().$object;
+    updateProjects = ->
+      $scope.projects = Restangular.all('projects').getList().$object;
 
+    $scope.removeProject = (project) ->
+      project.remove().then(
+        ->
+          toaster.success "The project has been successfully removed."
+          updateProjects()
+      )
+
+    updateProjects()
+  ]
+
+  .controller 'ProjectCtrl', ['$scope', '$state', 'Restangular', 'toaster', ($scope, $state, Restangular, toaster) ->
+    updateTasks = ->
+      $scope.tasks = $scope.project.all('tasks').getList().$object
+
+    $scope.addTask = ->
+      $scope.project.all('tasks').post($scope.newTask).then(updateTasks)
+
+    $scope.removeTask = (task) ->
+      task.remove().then(updateTasks)
+
+    $scope.rm = (project) ->
+      console.log $scope
+      $scope.$parent.removeProject(project)
+
+    updateTasks()
+
+  ]
+
+  .controller 'TaskCtrl', ['$scope', '$state', 'Restangular', ($scope, $state, Restangular) ->
+    updateComments = ->
+      $scope.comments = Restangular.one('tasks', $scope.task.id).all('comments').getList().$object
+
+    $scope.addComment = ->
+      Restangular.one('tasks', $scope.task.id).all('comments').post($scope.newComment).then(updateComments)
+
+    $scope.removeComment = (comment) ->
+      comment.remove().then(updateComments)
+
+    updateComments()
   ]

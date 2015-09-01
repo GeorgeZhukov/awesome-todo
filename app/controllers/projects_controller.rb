@@ -12,6 +12,11 @@ class ProjectsController < ApplicationController
     redirect_to project_path(@project, format: :json)
   end
 
+  def destroy
+    @project.destroy
+    render json: { nothing: true }
+  end
+
   private
   def project_params
     params.permit(:title)

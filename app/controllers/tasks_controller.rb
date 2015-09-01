@@ -16,7 +16,6 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    # redirect_to project_tasks_path(@project, format: :json)
     render json: { nothing: true }
   end
 
