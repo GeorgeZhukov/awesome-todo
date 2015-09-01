@@ -1,13 +1,13 @@
 angular.module('app', ['ng-rails-csrf', 'templates', 'controllers', 'directives', 'ui.router', 'ng-token-auth',])
 
-.config(['$authProvider',
+  .config(['$authProvider',
     ($authProvider)->
       $authProvider.configure(
         apiUrl: ""
       )
   ])
 
-.config(['$stateProvider', '$urlRouterProvider',
+  .config(['$stateProvider', '$urlRouterProvider',
     ($stateProvider, $urlRouterProvider)->
       $urlRouterProvider.otherwise "/sign-in"
 
@@ -26,16 +26,15 @@ angular.module('app', ['ng-rails-csrf', 'templates', 'controllers', 'directives'
         url: '/projects',
         templateUrl: 'projects.html',
         controller: 'ProjectsCtrl',
-#        resolve:
-#          auth: ['$auth', ($auth)-> $auth.validateUser()]
+        resolve:
+          auth: ($auth) -> $auth.validateUser()
 
       .state 'new_project',
         url: '/projects/new',
         templateUrl: 'new_project.html',
         controller: 'NewProjectCtrl',
-#        resolve:
-#          auth: ['$auth', ($auth)-> $auth.validateUser()]
-
+        resolve:
+          auth: ($auth) -> $auth.validateUser()
 
   ])
 
