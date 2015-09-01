@@ -20,4 +20,12 @@ RSpec.describe CommentsController, type: :controller do
       expect(Comment.last.text).to eq comment[:text]
     end
   end
+
+  xdescribe "DELETE" do
+    it "deletes the comment" do
+      comment = create :comment, task: task
+      delete :destroy, format: :json, task_id: task.id
+      expect(Comment.count).to be_zero
+    end
+  end
 end
