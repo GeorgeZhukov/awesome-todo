@@ -18,6 +18,8 @@ gem 'devise_token_auth'
 # gem 'ng-rails-csrf'
 gem 'angular_rails_csrf'
 gem 'omniauth-facebook'
+gem 'carrierwave'
+gem 'cloudinary'
 
 
 group :development, :test do

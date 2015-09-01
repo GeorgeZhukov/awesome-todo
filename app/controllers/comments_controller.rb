@@ -1,8 +1,11 @@
 class CommentsController < ApplicationController
   load_and_authorize_resource :task
-  load_and_authorize_resource through: :task
+  load_and_authorize_resource through: :task, shallow: true
 
   def index
+  end
+
+  def show
   end
 
   def create

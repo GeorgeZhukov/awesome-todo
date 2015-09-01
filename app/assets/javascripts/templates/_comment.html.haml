@@ -1,3 +1,7 @@
 {{ comment.text }}
 %button.btn.btn-xs.btn-danger{"ng-click"=>"removeComment(comment)"} Remove comment
+
+%ul.attachments
+  %li.attached-file{"ng-repeat"=>"attached_file in comment.attached_files"}
+    %a= "{{ attached_file.id }}"
 %br

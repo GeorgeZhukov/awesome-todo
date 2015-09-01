@@ -82,9 +82,6 @@ angular.module('controllers', ['restangular', 'toaster', 'ng-token-auth',])
       $scope.removeTask = (task) ->
         task.remove().then(updateTasks)
 
-      $scope.qw = ->
-        console.log $scope
-
       updateTasks()
 
   ]
@@ -92,7 +89,16 @@ angular.module('controllers', ['restangular', 'toaster', 'ng-token-auth',])
   .controller 'TaskController', ['$scope', '$state', 'Restangular',
     ($scope, $state, Restangular) ->
       updateComments = ->
-        $scope.comments = Restangular.one('tasks', $scope.task.id).all('comments').getList().$object
+        Restangular.one('tasks', $scope.task.id).all('comments').getList().then(
+          (comments)->
+            _.map(comments,
+              (comment)->
+                comment.attached_files = Restangular.one('comments', comment.id).all('attached_files').getList().$object
+            )
+            $scope.comments = comments
+        )
+        #$scope.comments = Restangular.one('tasks', $scope.task.id).all('comments').getList().$object
+
 
       $scope.addComment = ->
         Restangular.one('tasks', $scope.task.id).all('comments').post($scope.newComment).then(updateComments)
