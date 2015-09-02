@@ -14,7 +14,7 @@ angular.module('app.controllers')
 
 
       $scope.addComment = ->
-        $scope.task.all('comments').post($scope.newComment).then(updateComments)
+        Restangular.one('tasks', $scope.task.id).all('comments').post($scope.newComment).then(updateComments)
 
       $scope.removeComment = (comment) ->
         comment.remove().then(updateComments)

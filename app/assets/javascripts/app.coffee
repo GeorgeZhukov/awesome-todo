@@ -20,7 +20,6 @@ angular.module('app', [
     RestangularProvider
     .setBaseUrl('/')
     .setRequestSuffix('.json')
-    .setParentless(['tasks'])
   ])
 
   .config(['$stateProvider', '$urlRouterProvider',
@@ -59,12 +58,7 @@ angular.module('app', [
       $auth.validateUser().then(-> $state.go 'projects')
   ])
 
-  .config(['RestangularProvider', (RestangularProvider) ->
-    RestangularProvider
-    .setBaseUrl('/')
-    .setRequestSuffix('.json')
-    .setParentless(['tasks'])
-  ])
+
 
   .directive 'project', ->
     templateUrl: "_project.html"
