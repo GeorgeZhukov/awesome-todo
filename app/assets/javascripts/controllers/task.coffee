@@ -2,7 +2,7 @@ angular.module('app.controllers')
   .controller 'TaskController', ['$scope', '$state', 'Restangular',
     ($scope, $state, Restangular) ->
       updateComments = ->
-        $scope.task.all('comments').getList().then(
+        Restangular.one('tasks', $scope.task.id).all('comments').getList().then(
           (comments)->
             _.map(comments,
               (comment)->
