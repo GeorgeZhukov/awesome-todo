@@ -1,10 +1,26 @@
-angular.module('app', ['templates', 'controllers', 'directives', 'ui.router', 'ng-token-auth', ])
+angular.module 'app.services', []
+angular.module 'app.controllers', ['app.services']
+
+angular.module('app', [
+  'app.controllers',
+  'templates',
+  'ui.router',
+  'ng-token-auth',
+  'restangular',
+  'toaster',])
 
   .config(['$authProvider',
     ($authProvider)->
       $authProvider.configure(
         apiUrl: ""
       )
+  ])
+
+  .config(['RestangularProvider', (RestangularProvider) ->
+    RestangularProvider
+    .setBaseUrl('/')
+    .setRequestSuffix('.json')
+    .setParentless(['tasks'])
   ])
 
   .config(['$stateProvider', '$urlRouterProvider',
@@ -43,5 +59,19 @@ angular.module('app', ['templates', 'controllers', 'directives', 'ui.router', 'n
       $auth.validateUser().then(-> $state.go 'projects')
   ])
 
+  .config(['RestangularProvider', (RestangularProvider) ->
+    RestangularProvider
+    .setBaseUrl('/')
+    .setRequestSuffix('.json')
+    .setParentless(['tasks'])
+  ])
 
+  .directive 'project', ->
+    templateUrl: "_project.html"
+
+  .directive 'task', ->
+    templateUrl: "_task.html"
+
+  .directive 'comment', ->
+    templateUrl: "_comment.html"
 

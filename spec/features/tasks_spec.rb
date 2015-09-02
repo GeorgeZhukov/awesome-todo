@@ -13,7 +13,7 @@ RSpec.feature "Tasks", type: :feature, js: true do
     expect(page).to have_content task.title
   end
 
-  scenario "A user can add a new task" do
+  xscenario "A user can add a new task" do
     login(user)
 
     task_attrs = attributes_for :task

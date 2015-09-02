@@ -22,6 +22,4 @@
 //= require restangular/dist/restangular
 //= require angular-rails-templates
 //= require_tree ./templates
-//= require app
-//= require controllers/controllers.coffee
 //= require_tree .
