@@ -20,6 +20,7 @@ gem 'angular_rails_csrf'
 gem 'omniauth-facebook'
 gem 'carrierwave'
 gem 'cloudinary'
+gem "font-awesome-rails"
 
 
 group :development, :test do

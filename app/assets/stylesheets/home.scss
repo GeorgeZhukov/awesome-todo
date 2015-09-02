@@ -1,3 +1,87 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  background: linear-gradient(to bottom, #e0e0e0 0%, #eaf2de 0%, #d6dbc9 38%, #ffa500 63%, #ffa830 100%);
+}
+
+.login-form {
+  width: 300px;
+}
+
+project {
+  width: 600px;
+  display: block;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: #ffffff;
+
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  .project-header {
+    background: linear-gradient(to bottom, #2aa3e0 0%, #1281bc 100%);
+    padding: 10px 20px;
+
+    .project-title {
+      margin-left: 10px;
+    }
+
+    .project-buttons {
+      i {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .new-task {
+    background: linear-gradient(to bottom, #e0e0e0 0%, #a5a5a5 100%);
+    padding: 10px;
+  }
+
+  .project-body {
+    min-height: 40px;
+    padding-bottom: 20px;
+  }
+
+  .tasks {
+    background-color: #ffffff;
+    display: block;
+
+    task {
+      display: block;
+      padding: 10px 30px;
+      border-top: 2px solid #dddddd;
+
+      .task-title {
+        font-size: 14px;
+        margin-left: 10px;
+      }
+
+      .task-buttons {
+        padding: 0px 10px;
+
+        i {
+          cursor: pointer;
+        }
+      }
+
+      .comments {
+        margin-left: 40px;
+
+        comment {
+          display: block;
+          padding: 10px;
+
+          .attachments {
+            display: block;
+          }
+        }
+      }
+
+    }
+
+  }
+}
+

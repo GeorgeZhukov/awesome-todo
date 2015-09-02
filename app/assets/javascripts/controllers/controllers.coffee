@@ -7,6 +7,10 @@ angular.module('controllers', ['restangular', 'toaster', 'ng-token-auth',])
 
   .controller 'PageController', ['$scope', '$auth', '$state', 'toaster',
     ($scope, $auth, $state, toaster) ->
+      $scope.$on 'auth:validation-error', (resp) ->
+        toaster.error 'Validation error.'
+        $state.go 'signin'
+
       $scope.$on 'auth:logout-success', (resp) ->
         toaster.success 'You have logged out.'
         $state.go 'signin'
@@ -78,6 +82,7 @@ angular.module('controllers', ['restangular', 'toaster', 'ng-token-auth',])
 
       $scope.addTask = ->
         $scope.project.all('tasks').post($scope.newTask).then(updateTasks)
+        $scope.newTask = {}
 
       $scope.removeTask = (task) ->
         task.remove().then(updateTasks)

@@ -1,10 +1,19 @@
-%h1=" {{ project.title }} "
-%button.btn.btn-sm.btn-danger{"ng-click"=>"removeProject(project)"} Remove project
-%form.form{"ng-submit"=>"addTask()", "ng-init"=>"newTask = {}"}
-  .form-group
-    %label
-      New task
-      %input{"ng-model"=>"newTask.title"}
-  %button.btn.btn-sm.btn-primary{:type=>"submit"} Create task
-%ul.tasks
-  %task{"ng-repeat"=>"task in tasks", "ng-controller"=>"TaskController"}
+.project-header
+  %div
+    %i.fa.fa-calendar-check-o
+    %span.project-title=" {{ project.title }} "
+    .project-buttons.pull-right
+      %i.fa.fa-trash{"ng-click"=>"removeProject(project)"}
+.new-task
+  %form.form{"ng-submit"=>"addTask()", "ng-init"=>"newTask = {}"}
+    .input-group
+      %span.input-group-btn
+        %button.btn.btn-sm.btn-success{:type=>"submit"}
+          %i.fa.fa-plus
+      %input.form-control.input-sm{:type=>"text", "ng-model"=>"newTask.title"}
+      %span.input-group-btn
+        %button.btn.btn-sm.btn-success{:type=>"submit"} Add task
+
+.project-body
+  .tasks
+    %task{"ng-repeat"=>"task in tasks", "ng-controller"=>"TaskController"}

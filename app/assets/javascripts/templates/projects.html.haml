@@ -1,5 +1,4 @@
 .projects
-  %project{"ng-controller"=>"ProjectController", "ng-repeat"=>"project in projects"}
+  %project.center-block{"ng-controller"=>"ProjectController", "ng-repeat"=>"project in projects"}
 
-%button.btn.btn-warning{"ng-click"=>"signOut()"} Sign Out
-%button.btn.btn-default{"ng-click"=>"new_project()"} Add a new project
+%button.btn.btn-success.center-block{"ng-click"=>"new_project()"} Add a new project
