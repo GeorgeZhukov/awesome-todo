@@ -1,12 +1,11 @@
 angular.module('app.controllers')
-  .controller 'ProjectController', ['$scope', '$state', 'toaster','TaskService',
-    ($scope, $state, toaster, TaskService) ->
+  .controller 'ProjectController', ['$scope', '$state', 'toaster','TaskService', 'Restangular',
+    ($scope, $state, toaster, TaskService, Restangular) ->
       updateTasks = ->
         $scope.tasks = TaskService.getTasksByProject($scope.project).$object
 
       $scope.addTask = ->
-        $scope.newTask.project_id = $scope.project.id
-        TaskService.addTask($scope.newTask).then(updateTasks)
+        TaskService.addTaskToProject($scope.project, $scope.newTask).then(updateTasks)
         $scope.newTask = {}
 
       $scope.removeTask = (task) ->
@@ -25,12 +24,14 @@ angular.module('app.controllers')
           task.project_id = $scope.project.id
 
         update: (e, ui) ->
-          console.log "update", $scope.tasks
+          console.log "update 1", $scope.tasks
 
           _.map($scope.tasks, (task, index) ->
             task.position = index
             TaskService.updateTask(task)
           )
+
+          console.log "update 2", $scope.tasks
 
         axis: 'y'
 
