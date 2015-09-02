@@ -11,6 +11,10 @@ angular.module('controllers', ['restangular', 'toaster', 'ng-token-auth',])
         toaster.error 'Validation error.'
         $state.go 'signin'
 
+      $scope.$on 'auth:invalid', (resp) ->
+        toaster.error 'Invalid.'
+        $state.go 'signin'
+
       $scope.$on 'auth:logout-success', (resp) ->
         toaster.success 'You have logged out.'
         $state.go 'signin'

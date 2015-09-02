@@ -2,14 +2,15 @@
   %input{:type=>"checkbox"}
   %span.task-title= "{{ task.title }}"
   .task-buttons.pull-right
+    %i.fa.fa-comment{""=>""}
     %i.fa.fa-trash{"ng-click"=>"removeTask(task)"}
 
 .comments
   %comment{"ng-repeat"=>"comment in comments"}
 
--#%form.form{"ng-init"=>"newComment = {}", "ng-submit"=>"addComment()"}
--#  .form-group
--#    %label
--#      Comment text
--#      %input{"ng-model"=>"newComment.text"}
--#  %button.btn.btn-xs.btn-default{:type=>"submit"} Add comment
+%form.form{"ng-init"=>"newComment = {}", "ng-submit"=>"addComment()"}
+  .form-group
+    %label
+      Comment text
+      %input{"ng-model"=>"newComment.text"}
+  %button.btn.btn-xs.btn-default{:type=>"submit"} Add comment

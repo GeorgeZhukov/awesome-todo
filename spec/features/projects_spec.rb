@@ -6,15 +6,15 @@ RSpec.feature "Projects", type: :feature, js: true do
   given(:user) { create :user }
   given!(:project) { create :project, user: user }
 
-  scenario "A user can see the list of projects" do
+  before do
     login(user)
+  end
 
+  scenario "A user can see the list of projects" do
     expect(page).to have_content project.title
   end
 
   scenario "A user can create a new project" do
-    login(user)
-
     click_button "Add a new project"
     project_attrs = attributes_for :project
     fill_in "Project title", with: project_attrs[:title]
@@ -26,9 +26,7 @@ RSpec.feature "Projects", type: :feature, js: true do
   scenario "A user can update the project title"
 
   scenario "A user can remove the project" do
-    login(user)
-
-    click_button "Remove project"
+    find(".project-buttons").first(".fa-trash").click
     expect(page).to have_content "The project has been successfully removed."
   end
 end

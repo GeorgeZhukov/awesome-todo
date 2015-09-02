@@ -17,7 +17,7 @@ RSpec.feature "Tasks", type: :feature, js: true do
     login(user)
 
     task_attrs = attributes_for :task
-    fill_in "New task", with: task_attrs[:title]
+    find(:css, ".new-task input").set(task_attrs[:title])
     click_button "Add task"
     expect(page).to have_content task_attrs[:title]
   end
@@ -25,7 +25,7 @@ RSpec.feature "Tasks", type: :feature, js: true do
   scenario "A user can remove the task" do
     login(user)
 
-    click_button "Remove"
+    find(".task-buttons").first(".fa-trash").click
     expect(page).not_to have_content task.title
   end
 end
