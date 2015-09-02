@@ -7,7 +7,9 @@ angular.module('app', [
   'ui.router',
   'ng-token-auth',
   'restangular',
-  'toaster',])
+  'toaster',
+  'ui.sortable',
+])
 
   .config(['$authProvider',
     ($authProvider)->

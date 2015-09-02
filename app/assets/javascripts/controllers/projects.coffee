@@ -12,8 +12,13 @@ angular.module('app.controllers')
         project.remove().then(
           ->
             toaster.success "The project has been successfully removed."
-            updateProjects()
+            _.remove($scope.projects, (p) -> p == project)
         )
+
+      $scope.sortableOptions =
+        update: (e, ui)->
+          console.log e
+        axis: 'y'
 
       updateProjects()
   ]

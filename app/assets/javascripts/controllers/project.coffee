@@ -1,15 +1,38 @@
 angular.module('app.controllers')
-  .controller 'ProjectController', ['$scope', '$state', 'Restangular', 'toaster',
-    ($scope, $state, Restangular, toaster) ->
+  .controller 'ProjectController', ['$scope', '$state', 'toaster','TaskService',
+    ($scope, $state, toaster, TaskService) ->
       updateTasks = ->
-        $scope.tasks = $scope.project.all('tasks').getList().$object
+        $scope.tasks = TaskService.getTasksByProject($scope.project).$object
 
       $scope.addTask = ->
-        $scope.project.all('tasks').post($scope.newTask).then(updateTasks)
+        $scope.newTask.project_id = $scope.project.id
+        TaskService.addTask($scope.newTask).then(updateTasks)
         $scope.newTask = {}
 
       $scope.removeTask = (task) ->
-        task.remove().then(updateTasks)
+        TaskService.removeTask(task).then(
+          -> _.remove($scope.tasks, (t)-> t == task)
+        )
+
+      $scope.sortableOptions =
+        connectWith: '.tasks'
+        opacity: 0.7
+
+        receive: (e, ui) ->
+
+          task = ui.item.sortable.model
+          console.log "receive id: ", task.id
+          task.project_id = $scope.project.id
+
+        update: (e, ui) ->
+          console.log "update", $scope.tasks
+
+          _.map($scope.tasks, (task, index) ->
+            task.position = index
+            TaskService.updateTask(task)
+          )
+
+        axis: 'y'
 
       updateTasks()
 

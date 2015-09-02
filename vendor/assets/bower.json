@@ -8,6 +8,7 @@
     "angularjs-toaster": "latest",
     "restangular": "latest",
     "angular-mocks": "latest",
-    "ng-token-auth": "latest"
+    "ng-token-auth": "latest",
+    "angular-ui-sortable": "latest"
   }
 }

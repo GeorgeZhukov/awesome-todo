@@ -42,15 +42,16 @@ project {
   }
 
   .project-body {
-    min-height: 40px;
     padding-bottom: 20px;
   }
 
   .tasks {
+    min-height: 40px;
     background-color: #ffffff;
     display: block;
 
     task {
+      background-color: #ffffff;
       display: block;
       padding: 10px 30px;
       border-top: 2px solid #dddddd;

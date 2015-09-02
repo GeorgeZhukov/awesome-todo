@@ -5,4 +5,5 @@ class Project < ActiveRecord::Base
   validates :title, presence: true
   validates :user, presence: true
 
+  default_scope { order(position: :asc ) }
 end

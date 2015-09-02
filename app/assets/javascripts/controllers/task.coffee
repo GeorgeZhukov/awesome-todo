@@ -1,23 +1,23 @@
 angular.module('app.controllers')
-  .controller 'TaskController', ['$scope', '$state', 'Restangular',
-    ($scope, $state, Restangular) ->
+  .controller 'TaskController', ['$scope', '$state', 'CommentService', 'AttachedFileService',
+    ($scope, $state, CommentService, AttachedFileService) ->
       updateComments = ->
-        Restangular.one('tasks', $scope.task.id).all('comments').getList().then(
+        CommentService.getCommentsByTask($scope.task).then(
           (comments)->
             _.map(comments,
               (comment)->
-                comment.attached_files = Restangular.one('comments', comment.id).all('attached_files').getList().$object
+                comment.attached_files = AttachedFileService.getAttachedFilesByComment(comment).$object
             )
             $scope.comments = comments
         )
-      #$scope.comments = Restangular.one('tasks', $scope.task.id).all('comments').getList().$object
-
 
       $scope.addComment = ->
-        Restangular.one('tasks', $scope.task.id).all('comments').post($scope.newComment).then(updateComments)
+        $scope.newComment.task_id = $scope.task.id
+        CommentService.addComment($scope.newComment).then(updateComments)
+        $scope.newComment = {}
 
       $scope.removeComment = (comment) ->
-        comment.remove().then(updateComments)
+        CommentService.removeComment(comment).then( -> _.remove($scope.comments, (c)-> c == comment ))
 
       updateComments()
   ]

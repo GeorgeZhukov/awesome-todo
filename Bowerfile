@@ -6,4 +6,6 @@ asset 'angularjs-toaster'
 asset 'restangular'
 asset 'angular-mocks'
 asset 'ng-token-auth'
+asset 'angular-ui-sortable'
+
 # vim: ft=ruby

@@ -4,14 +4,14 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :projects, only: [:index, :show, :create, :destroy] do
-    resources :tasks, only: [:index, :show, :create, :destroy]
+    resources :tasks, only: [:index, :show]
   end
 
-  resources :tasks, only: [:index, :show, :create, :destroy] do
-    resources :comments, only: [:index, :create, :destroy]
+  resources :tasks do
+    resources :comments, only: [:index]
   end
 
-  resources :comments, only: [:show] do
+  resources :comments do
     resources :attached_files, only: [:index]
   end
 end

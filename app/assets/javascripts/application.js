@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui/jquery-ui
 //= require bootstrap-sass-official/assets/javascripts/bootstrap-sprockets
 //= require lodash/lodash
 //= require angular/angular
@@ -21,5 +22,6 @@
 //= require angularjs-toaster/toaster
 //= require restangular/dist/restangular
 //= require angular-rails-templates
+//= require angular-ui-sortable/sortable
 //= require_tree ./templates
 //= require_tree .

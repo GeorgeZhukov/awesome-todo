@@ -9,6 +9,11 @@ class TasksController < ApplicationController
   def show
   end
 
+  def update
+    @task.update_attributes(task_params)
+    render json: { nothing: true }
+  end
+
   def create
     @task = @project.tasks.create(task_params)
     redirect_to project_tasks_path(@project, format: :json)
@@ -21,6 +26,6 @@ class TasksController < ApplicationController
 
   private
   def task_params
-    params.permit(:title)
+    params.permit(:title, :position, :project_id)
   end
 end
