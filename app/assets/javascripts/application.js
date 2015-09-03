@@ -24,5 +24,6 @@
 //= require angular-rails-templates
 //= require angular-ui-sortable/sortable
 //= require angular-xeditable/dist/js/xeditable
+//= require angular-file-upload/dist/angular-file-upload.min
 //= require_tree ./templates
 //= require_tree .

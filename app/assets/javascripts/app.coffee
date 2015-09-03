@@ -10,6 +10,7 @@ angular.module('app', [
     'toaster',
     'ui.sortable',
     'xeditable',
+    'angularFileUpload',
   ])
 
   .config(['$authProvider',

@@ -8,4 +8,5 @@ asset 'angular-mocks'
 asset 'ng-token-auth'
 asset 'angular-ui-sortable'
 asset 'angular-xeditable'
+asset 'angular-file-upload'
 # vim: ft=ruby

@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
 
   def create
     comment = @task.comments.create(comment_params)
-    redirect_to task_path(@task, format: :json)
+    redirect_to comment_path(comment, format: :json)
   end
 
   def destroy
