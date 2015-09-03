@@ -1,5 +1,5 @@
 .row
-  %input{:type=>"checkbox"}
+  %input{:type=>"checkbox", "ng-checked"=>"task.done", "ng-click"=>"toggleTaskStatus(task)"}
   %span.task-title{"editable-text"=>"task.title", "onaftersave"=>"save()"}= "{{ task.title }}"
   .task-buttons.pull-right
     %i.fa.fa-comment{""=>""}
@@ -22,6 +22,6 @@
         Name:
         %span{"ng-bind"=>"item.file.name"}
         %br
-        %button{"ng-click"=>"item.upload()"} Upload
+        %button.btn.btn-xs.btn-danger{"ng-click"=>"uploader.removeFromQueue(item)", :type=>"button"} Remove
 
   %button.btn.btn-xs.btn-default{:type=>"submit"} Add comment

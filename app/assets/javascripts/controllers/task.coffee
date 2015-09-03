@@ -17,6 +17,9 @@ angular.module('app.controllers')
       $scope.saveComment = (comment)->
         Restangular.one("comments", comment.id).patch(comment)
 
+      $scope.toggleTaskStatus = (task) ->
+        task.done = !task.done
+        Restangular.one("tasks", task.id).patch(task)
 
       $scope.removeComment = (comment) ->
         CommentService.removeComment(comment).then( -> _.remove($scope.comments, (c)-> c == comment ))

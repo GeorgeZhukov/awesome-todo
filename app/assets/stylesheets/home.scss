@@ -51,6 +51,16 @@ project {
     background-color: #ffffff;
     display: block;
 
+    task.task-done {
+      opacity: .7;
+
+      .task-title {
+        text-decoration: line-through;
+      }
+
+    }
+
+
     task {
       background-color: #ffffff;
       display: block;
@@ -85,6 +95,8 @@ project {
       }
 
     }
+
+
 
   }
 }
