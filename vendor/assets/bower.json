@@ -11,6 +11,7 @@
     "ng-token-auth": "latest",
     "angular-ui-sortable": "latest",
     "angular-xeditable": "latest",
-    "angular-file-upload": "latest"
+    "angular-file-upload": "latest",
+    "angular-loading-bar": "latest"
   }
 }

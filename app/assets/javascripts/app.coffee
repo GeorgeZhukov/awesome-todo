@@ -11,12 +11,14 @@ angular.module('app', [
     'ui.sortable',
     'xeditable',
     'angularFileUpload',
+    'angular-loading-bar',
+    'ngAnimate',
   ])
 
   .config(['$authProvider',
     ($authProvider)->
       $authProvider.configure(
-        apiUrl: ""
+        apiUrl: window.apiUrl
       )
   ])
 

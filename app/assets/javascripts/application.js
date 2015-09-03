@@ -25,5 +25,7 @@
 //= require angular-ui-sortable/sortable
 //= require angular-xeditable/dist/js/xeditable
 //= require angular-file-upload/dist/angular-file-upload.min
+//= require angular-loading-bar/build/loading-bar
+//= require angular-animate/angular-animate
 //= require_tree ./templates
 //= require_tree .
