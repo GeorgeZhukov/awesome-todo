@@ -6,5 +6,5 @@
 
 %ul.attachments
   %li.attached-file{"ng-repeat"=>"attached_file in comment.attached_files"}
-    %a= "{{ attached_file.id }}"
+    %a{:href=>"{{ attached_file.attachment_url }}"}= "{{ attached_file.attachment_identifier }}"
 %br

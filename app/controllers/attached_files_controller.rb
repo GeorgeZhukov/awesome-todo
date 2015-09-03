@@ -7,6 +7,7 @@ class AttachedFilesController < ApplicationController
   end
 
   def create
-
+    attached_file = @comment.attached_files.create(attachment: params[:file])
+    render json: { nothing: true }
   end
 end

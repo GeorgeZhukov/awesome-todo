@@ -2,10 +2,10 @@
   %form#sign-in-form{"ng-submit"=>"login()", "ng-init"=>"loginForm = {email: '', password: ''}"}
     .form-group
       %label{:for => "id_email"} E-mail
-      %input#id_email.form-control{:placeholder => "Email", :type => "email", "ng-model" => "loginForm.email"}/
+      %input#id_email.form-control{:placeholder => "Email", :type => "email", "ng-model" => "loginForm.email", :required=>""}/
     .form-group
       %label{:for => "id_password"} Password
-      %input#id_password.form-control{:placeholder => "Password", :type => "password", "ng-model" => "loginForm.password"}/
+      %input#id_password.form-control{:placeholder => "Password", :type => "password", "ng-model" => "loginForm.password", :required=>""}/
     %button.btn.btn-default{:type => "submit"} Sign In
 
     %button.btn.btn-warning{:type=>"button", "ng-click"=>"authenticate('facebook')"} Sign In With Facebook
