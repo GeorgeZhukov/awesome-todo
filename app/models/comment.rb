@@ -4,4 +4,14 @@ class Comment < ActiveRecord::Base
 
   validates :text, presence: true
   validates :task, presence: true
+
+  def to_builder
+    Jbuilder.new do |comment|
+      comment.(self, :id, :text)
+      comment.attached_files attached_files do |attached_file|
+      	comment.attached_file = attached_file.to_builder
+      end
+
+    end
+  end
 end

@@ -13,4 +13,13 @@ class Task < ActiveRecord::Base
       self.position -= 1 # Move up
     end
   end
+
+  def to_builder
+    Jbuilder.new do |task|
+      task.(self, :id, :title, :position)
+      task.comments comments do |comment|
+        task.comment = comment.to_builder
+      end
+    end
+  end
 end
