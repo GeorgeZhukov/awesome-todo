@@ -9,6 +9,7 @@
     "restangular": "latest",
     "angular-mocks": "latest",
     "ng-token-auth": "latest",
-    "angular-ui-sortable": "latest"
+    "angular-ui-sortable": "latest",
+    "angular-xeditable": "latest"
   }
 }

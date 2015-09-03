@@ -2,14 +2,15 @@ angular.module 'app.services', []
 angular.module 'app.controllers', ['app.services']
 
 angular.module('app', [
-  'app.controllers',
-  'templates',
-  'ui.router',
-  'ng-token-auth',
-  'restangular',
-  'toaster',
-  'ui.sortable',
-])
+    'app.controllers',
+    'templates',
+    'ui.router',
+    'ng-token-auth',
+    'restangular',
+    'toaster',
+    'ui.sortable',
+    'xeditable',
+  ])
 
   .config(['$authProvider',
     ($authProvider)->
@@ -55,9 +56,10 @@ angular.module('app', [
 
   ])
 
-  .run(['$state', '$auth',
-    ($state, $auth) ->
+  .run(['$state', '$auth', 'editableOptions',
+    ($state, $auth, editableOptions) ->
       $auth.validateUser().then(-> $state.go 'projects')
+      editableOptions.theme = 'bs3';
   ])
 
 

@@ -1,5 +1,6 @@
 .row
-  {{ comment.text }}
+  %span{"editable-text"=>"comment.text","onaftersave"=>"saveComment(comment)"}= "{{ comment.text }}"
+
   .pull-right
     %button.btn.btn-xs.btn-danger{"ng-click"=>"removeComment(comment)"} Remove comment
 

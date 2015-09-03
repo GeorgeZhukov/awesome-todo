@@ -8,6 +8,11 @@ class CommentsController < ApplicationController
   def show
   end
 
+  def update
+    @comment.update_attributes(comment_params)
+    render json: { nothing: true }
+  end
+
   def create
     comment = @task.comments.create(comment_params)
     redirect_to task_path(@task, format: :json)

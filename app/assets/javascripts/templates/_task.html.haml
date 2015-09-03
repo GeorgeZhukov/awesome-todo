@@ -1,6 +1,6 @@
 .row
   %input{:type=>"checkbox"}
-  %span.task-title= "{{ task.title }}"
+  %span.task-title{"editable-text"=>"task.title", "onaftersave"=>"save()"}= "{{ task.title }}"
   .task-buttons.pull-right
     %i.fa.fa-comment{""=>""}
     %i.fa.fa-trash{"ng-click"=>"removeTask(task)"}
@@ -12,5 +12,5 @@
   .form-group
     %label
       Comment text
-      %input{"ng-model"=>"newComment.text"}
+      %input{"ng-model"=>"newComment.text", :required=>""}
   %button.btn.btn-xs.btn-default{:type=>"submit"} Add comment

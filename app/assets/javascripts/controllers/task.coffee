@@ -11,6 +11,12 @@ angular.module('app.controllers')
             $scope.comments = comments
         )
 
+      $scope.save = ->
+        Restangular.one("tasks", $scope.task.id).patch($scope.task)
+
+      $scope.saveComment = (comment)->
+        Restangular.one("comments", comment.id).patch(comment)
+
       $scope.addComment = ->
         Restangular.one("tasks", $scope.task.id).all("comments").post($scope.newComment).then(updateComments)
         $scope.newComment = {}

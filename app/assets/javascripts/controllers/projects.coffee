@@ -16,6 +16,9 @@ angular.module('app.controllers')
         )
 
       $scope.sortableOptions =
+        opacity: 0.7
+        delay: 150
+
         stop: (e, ui) ->
           _.map($scope.projects, (project, index) ->
             project.position = index

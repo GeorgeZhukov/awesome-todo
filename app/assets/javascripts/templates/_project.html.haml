@@ -1,7 +1,7 @@
 .project-header
   %div
     %i.fa.fa-calendar-check-o
-    %span.project-title=" {{ project.title }} "
+    %span.project-title{"editable-text"=>"project.title","onaftersave"=>"save()"}=" {{ project.title }} "
     .project-buttons.pull-right
       %i.fa.fa-trash{"ng-click"=>"removeProject(project)"}
 .new-task
@@ -10,7 +10,7 @@
       %span.input-group-btn
         %button.btn.btn-sm.btn-success{:type=>"submit"}
           %i.fa.fa-plus
-      %input.form-control.input-sm{:type=>"text", "ng-model"=>"newTask.title"}
+      %input.form-control.input-sm{:type=>"text", "ng-model"=>"newTask.title", :required=>""}
       %span.input-group-btn
         %button.btn.btn-sm.btn-success{:type=>"submit"} Add task
 

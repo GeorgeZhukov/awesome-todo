@@ -13,9 +13,13 @@ angular.module('app.controllers')
           -> _.remove($scope.tasks, (t)-> t == task)
         )
 
+      $scope.save = ->
+        $scope.project.patch()
+
       $scope.sortableOptions =
         connectWith: '.tasks'
         opacity: 0.7
+        delay: 150
 
 #        receive: (e, ui) ->
 #          task = ui.item.sortable.model

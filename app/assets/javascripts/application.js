@@ -23,5 +23,6 @@
 //= require restangular/dist/restangular
 //= require angular-rails-templates
 //= require angular-ui-sortable/sortable
+//= require angular-xeditable/dist/js/xeditable
 //= require_tree ./templates
 //= require_tree .
