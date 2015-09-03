@@ -6,7 +6,7 @@
     %i.fa.fa-trash{"ng-click"=>"removeTask(task)"}
 
 .comments
-  %comment{"ng-repeat"=>"comment in comments"}
+  %comment.slide-top{"ng-repeat"=>"comment in comments", "ng-class"=>"animation"}
 
 %form.form{"ng-init"=>"newComment = {}", "ng-submit"=>"create()", "ng-controller"=>"NewCommentController"}
   .form-group

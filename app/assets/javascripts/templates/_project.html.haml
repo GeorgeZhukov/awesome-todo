@@ -16,4 +16,4 @@
 
 .project-body
   .tasks{"ng-model"=>"tasks", "ui-sortable"=>"sortableOptions"}
-    %task{"ng-repeat"=>"task in tasks", "ng-controller"=>"TaskController", "ng-class"=>"{'task-done': task.done}"}
+    %task.slide-top{"ng-repeat"=>"task in tasks", "ng-controller"=>"TaskController", "ng-class"=>"{'task-done': task.done, 'animation': true}"}
