@@ -21,7 +21,7 @@ gem 'omniauth-facebook'
 gem 'carrierwave'
 gem 'cloudinary'
 gem "font-awesome-rails"
-
+gem 'active_model_serializers'
 
 group :development, :test do
   gem 'byebug'

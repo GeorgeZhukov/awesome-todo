@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
   load_and_authorize_resource
 
   def index
+    render json: @projects.first, serializer: ProjectSerializer
   end
 
   def show
