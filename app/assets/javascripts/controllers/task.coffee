@@ -1,6 +1,6 @@
 angular.module('app.controllers')
-  .controller 'TaskController', ['$scope', '$state', 'CommentService', 'AttachedFileService', 'Restangular',
-    ($scope, $state, CommentService, AttachedFileService, Restangular) ->
+  .controller 'TaskController', ['$scope', '$state', 'CommentService', 'AttachedFileService', 'TaskService',
+    ($scope, $state, CommentService, AttachedFileService, TaskService) ->
       $scope.updateComments = ->
         CommentService.getCommentsByTask($scope.task).then(
           (comments)->
@@ -12,14 +12,14 @@ angular.module('app.controllers')
         )
 
       $scope.save = ->
-        Restangular.one("tasks", $scope.task.id).patch($scope.task)
+        TaskService.updateTask($scope.task)
 
       $scope.saveComment = (comment)->
-        Restangular.one("comments", comment.id).patch(comment)
+        CommentService.updateComment(comment)
 
       $scope.toggleTaskStatus = (task) ->
         task.done = !task.done
-        Restangular.one("tasks", task.id).patch(task)
+        TaskService.updateTask(task)
 
       $scope.removeComment = (comment) ->
         CommentService.removeComment(comment).then( -> _.remove($scope.comments, (c)-> c == comment ))

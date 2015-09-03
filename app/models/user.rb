@@ -6,4 +6,12 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
 
   has_many :projects, dependent: :destroy
+
+  def get_image
+    if image
+      image
+    else
+      "gravatar"
+    end
+  end
 end

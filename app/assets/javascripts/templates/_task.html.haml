@@ -17,11 +17,11 @@
   .form-group
     %input{:type=>"file", "nv-file-select"=>"", :multiple=>"", :uploader=>"uploader"}
     %br
-    %ul
-      %li{"ng-repeat"=>"item in uploader.queue"}
-        Name:
-        %span{"ng-bind"=>"item.file.name"}
-        %br
-        %button.btn.btn-xs.btn-danger{"ng-click"=>"uploader.removeFromQueue(item)", :type=>"button"} Remove
+    %ul.attachments.list-inline
+      %li.attached-file{"ng-repeat"=>"item in uploader.queue"}
+        %span
+          %i.fa.fa-file
+          %span{"ng-bind"=>"item.file.name"}
+          %i.fa.fa-trash{"ng-click"=>"uploader.removeFromQueue(item)"}
 
   %button.btn.btn-xs.btn-default{:type=>"submit"} Add comment

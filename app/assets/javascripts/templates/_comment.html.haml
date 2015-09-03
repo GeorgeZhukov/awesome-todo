@@ -1,10 +1,11 @@
 .row
   %span{"editable-text"=>"comment.text","onaftersave"=>"saveComment(comment)"}= "{{ comment.text }}"
 
-  .pull-right
-    %button.btn.btn-xs.btn-danger{"ng-click"=>"removeComment(comment)"} Remove comment
+  .comment-buttons.pull-right
+    %i.fa.fa-times{"ng-click"=>"removeComment(comment)"}
 
-%ul.attachments
+%ul.attachments.list-inline
   %li.attached-file{"ng-repeat"=>"attached_file in comment.attached_files"}
-    %a{:href=>"{{ attached_file.attachment_url }}"}= "{{ attached_file.attachment_identifier }}"
-%br
+    %a{:href=>"{{ attached_file.attachment_url }}"}
+      %i.fa.fa-file
+      = "{{ attached_file.attachment_identifier }}"

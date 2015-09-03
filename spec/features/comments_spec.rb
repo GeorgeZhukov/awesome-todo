@@ -22,7 +22,7 @@ RSpec.feature "Comments", type: :feature, js: true do
 
   scenario "A user can remove comment" do
     comment = create :comment, task: task
-    click_button "Remove comment"
+    find(".comment-buttons").first(".fa-times").click
     expect(page).not_to have_content comment.text
   end
 

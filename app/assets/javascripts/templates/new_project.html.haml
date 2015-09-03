@@ -1,6 +1,11 @@
-%form{"ng-submit"=>"create()", "ng-init"=>"project={}"}
-  .form-group
-    %label{:for=>"title"} Project title
-    %input#title{"ng-model"=>"project.title", :required=>""}
+.new-project.center-block
+  %h2 New project
 
-  %button.btn.btn-primary{:type=>"submit"} Create
+  %form{"ng-submit"=>"create()", "ng-init"=>"project={}"}
+    .form-group
+      %label{:for=>"title"} Project title
+      %input#title{"ng-model"=>"project.title", :required=>""}
+
+    %button.btn.btn-success.btn-block{:type=>"submit"}
+      %span.fa.fa-plus
+      Create

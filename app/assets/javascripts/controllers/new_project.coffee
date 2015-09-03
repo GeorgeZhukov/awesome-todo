@@ -1,8 +1,8 @@
 angular.module('app.controllers')
-  .controller 'NewProjectController', ['$scope', 'Restangular', '$state', 'toaster',
-    ($scope, Restangular, $state, toaster) ->
+  .controller 'NewProjectController', ['$scope', '$state', 'toaster', 'ProjectService',
+    ($scope, $state, toaster, ProjectService) ->
       $scope.create = ->
-        Restangular.service('projects').post($scope.project).then(
+        ProjectService.addProject($scope.project).then(
           ->
             toaster.success "The project has been successfully created."
             $state.go 'projects'

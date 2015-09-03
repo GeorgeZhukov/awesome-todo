@@ -1,6 +1,6 @@
 angular.module('app.controllers')
-  .controller 'ProjectController', ['$scope', '$state', 'toaster','TaskService', 'Restangular',
-    ($scope, $state, toaster, TaskService, Restangular) ->
+  .controller 'ProjectController', ['$scope', '$state', 'toaster', 'TaskService',
+    ($scope, $state, toaster, TaskService) ->
       updateTasks = ->
         $scope.tasks = TaskService.getTasksByProject($scope.project).$object
 
@@ -21,29 +21,11 @@ angular.module('app.controllers')
         opacity: 0.7
         delay: 150
 
-#        receive: (e, ui) ->
-#          task = ui.item.sortable.model
-#          task.project_id = $scope.project.id
-#
-#          _.map($scope.tasks, (task, index) ->
-#            task.position = index
-#            console.log task
-#            Restangular.one("projects", task.project_id).one("tasks", task.id).patch(task)
-##            Restangular.one("tasks", task.id).patch(task)
-#          )
-
         stop: (e, ui) ->
           _.map($scope.tasks, (task, index) ->
             task.position = index
-            Restangular.one("tasks", task.id).patch(task)
+            TaskService.updateTask(task)
           )
-
-#        update: (e, ui) ->
-#
-#          _.map($scope.tasks, (task, index) ->
-#            task.position = index
-#            Restangular.one("tasks", task.id).patch(task)
-#          )
 
         axis: 'y'
 

@@ -1,15 +1,15 @@
 angular.module('app.controllers')
-  .controller 'NewCommentController', ['$scope', 'FileUploader', 'Restangular',
-    ($scope, FileUploader, Restangular)->
+  .controller 'NewCommentController', ['$scope', 'FileUploader', 'CommentService',
+    ($scope, FileUploader, CommentService)->
       $scope.uploader = new FileUploader(
         queueLimit: 3
         onCompleteAll: ->
+          $scope.uploader.clearQueue()
           $scope.$parent.updateComments()
       )
 
       $scope.create = ->
-
-        Restangular.one("tasks", $scope.task.id).all("comments").post($scope.newComment).then(
+        CommentService.addCommentToTask($scope.task, $scope.newComment).then(
           (comment)->
             if _.size($scope.uploader.queue) == 0
               $scope.$parent.updateComments()

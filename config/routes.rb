@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-
   resources :projects do
     resources :tasks, shallow: true do
       resources :comments, shallow: true do
@@ -11,6 +10,7 @@ Rails.application.routes.draw do
       end
     end
   end
+
   # resources :projects, only: [:index, :show, :create, :destroy] do
   #   resources :tasks, only: [:index, :show]
   # end

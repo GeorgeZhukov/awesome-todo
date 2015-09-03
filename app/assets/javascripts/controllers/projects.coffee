@@ -1,6 +1,6 @@
 angular.module('app.controllers')
-  .controller 'ProjectsController', ['$scope', '$auth', '$state', 'Restangular', 'toaster', 'ProjectService',
-    ($scope, $auth, $state, Restangular, toaster, ProjectService) ->
+  .controller 'ProjectsController', ['$scope', '$auth', '$state', 'toaster', 'ProjectService',
+    ($scope, $auth, $state, toaster, ProjectService) ->
 
       updateProjects = ->
         $scope.projects = ProjectService.getProjects().$object

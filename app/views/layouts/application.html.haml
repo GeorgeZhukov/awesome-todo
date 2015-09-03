@@ -11,7 +11,7 @@
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   %body
-    %button.btn.btn-xs.btn-warning{"ng-click"=>"signOut()"} Sign Out
+    %button.btn.btn-sm.btn-warning.pull-right{"ng-click"=>"signOut()"} Sign Out
     .container{"ng-controller"=>"PageController"}
       %toaster-container
       .view-frame.animate.animate-view{"ui-view" => ""}
