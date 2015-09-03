@@ -11,6 +11,6 @@ RSpec.feature "AttachedFiles", type: :feature, js: true do
 
   scenario "A user can see attached files" do
     login(user)
-    expect(page).to have_content attached_file.id
+    expect(page).to have_content attached_file.attachment_identifier
   end
 end
