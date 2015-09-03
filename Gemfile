@@ -14,7 +14,7 @@ gem "bower-rails", "~> 0.10.0"
 gem 'angular-rails-templates'
 gem "haml-rails", "~> 0.9"
 gem 'sprockets', '2.12.3'
-gem 'devise_token_auth'
+gem 'devise_token_auth', git: "https://github.com/lynndylanhurley/devise_token_auth.git"
 # gem 'ng-rails-csrf'
 gem 'angular_rails_csrf'
 gem 'omniauth-facebook'

@@ -26,6 +26,13 @@ angular.module('app', [
     RestangularProvider
     .setBaseUrl('/')
     .setRequestSuffix('.json')
+    .setErrorInterceptor (
+      (response, deferred, responseHandler)->
+        if response.status == 403
+          $http(response.config).then(responseHandler, deferred.reject)
+          location.href = "/#/"
+          return false
+    )
   ])
 
   .config(['$stateProvider', '$urlRouterProvider',
