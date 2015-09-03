@@ -7,6 +7,11 @@ class ProjectsController < ApplicationController
   def show
   end
 
+  def update
+    @project.update_attributes(project_params)
+    render json: { nothing: true }
+  end
+
   def create
     @project = current_user.projects.create(project_params)
     redirect_to project_path(@project, format: :json)
@@ -19,6 +24,6 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.permit(:title)
+    params.permit(:title, :position)
   end
 end

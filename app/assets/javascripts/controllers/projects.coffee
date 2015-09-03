@@ -16,8 +16,11 @@ angular.module('app.controllers')
         )
 
       $scope.sortableOptions =
-        update: (e, ui)->
-          console.log e
+        stop: (e, ui) ->
+          _.map($scope.projects, (project, index) ->
+            project.position = index
+            project.patch()
+          )
         axis: 'y'
 
       updateProjects()
