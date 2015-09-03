@@ -18,7 +18,7 @@ angular.module('app', [
   .config(['$authProvider',
     ($authProvider)->
       $authProvider.configure(
-        apiUrl: window.apiUrl
+        apiUrl: ""
       )
   ])
 
