@@ -20,11 +20,13 @@ RSpec.feature "Comments", type: :feature, js: true do
 
   end
 
-  scenario "A user can remove comment" do
+  xscenario "A user can remove comment" do
     comment = create :comment, task: task
     find(".comment-buttons").first(".fa-times").click
     expect(page).not_to have_content comment.text
   end
 
-  scenario "A user can update comment"
+  xscenario "A user can update comment" do
+
+  end
 end

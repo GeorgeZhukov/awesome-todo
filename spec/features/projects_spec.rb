@@ -23,7 +23,15 @@ RSpec.feature "Projects", type: :feature, js: true do
   end
 
 
-  scenario "A user can update the project title"
+  scenario "A user can update the project title" do
+    project_attrs = attributes_for :project
+    within ".project-header" do
+      find(".project-title").click
+      find(:css, ".editable-input").set(project_attrs[:title])
+      find(".glyphicon-ok").click
+    end
+    expect(page).to have_content project_attrs[:title]
+  end
 
   scenario "A user can remove the project" do
     find(".project-buttons").first(".fa-trash").click
