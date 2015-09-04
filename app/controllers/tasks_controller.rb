@@ -13,7 +13,7 @@ class TasksController < ApplicationController
 
   def update
     @task.update_attributes(task_params)
-    render json: { nothing: true }
+    render json: @task
   end
 
   def create

@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
 
   def update
     @comment.update_attributes(comment_params)
-    render json: { nothing: true }
+    render json: @comment
   end
 
   def create

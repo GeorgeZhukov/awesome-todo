@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
 
   def update
     @project.update_attributes(project_params)
-    render json: { nothing: true }
+    render json: @project
   end
 
   def create

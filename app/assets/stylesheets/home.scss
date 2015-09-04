@@ -4,7 +4,7 @@
 
 body {
   //background: linear-gradient(to bottom, #e0e0e0 0%, #eaf2de 0%, #d6dbc9 38%, #ffa500 63%, #ffa830 100%);
-  background-color: #E8E8E8 !important;
+  background-color: #ffffff !important;
 }
 
 .login-form {
@@ -40,6 +40,10 @@ project {
 
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+
+  -webkit-box-shadow: 0 0 2px #242424;
+  //-moz-box-shadow:  hoff voff blur color;
+  //box-shadow:  hoff voff blur color;
 
   .project-header {
     background: linear-gradient(to bottom, #2aa3e0 0%, #1281bc 100%);
