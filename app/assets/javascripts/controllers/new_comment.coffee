@@ -1,7 +1,8 @@
 angular.module('app.controllers')
-  .controller 'NewCommentController', ['$scope', 'FileUploader', 'CommentService',
-    ($scope, FileUploader, CommentService)->
+  .controller 'NewCommentController', ['$scope', '$auth', 'FileUploader', 'CommentService',
+    ($scope, $auth, FileUploader, CommentService)->
       $scope.uploader = new FileUploader(
+        headers: $auth.retrieveData('auth_headers')
         queueLimit: 3
         onCompleteAll: ->
           $scope.uploader.clearQueue()
