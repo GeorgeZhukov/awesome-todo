@@ -1,6 +1,10 @@
 angular.module('app.controllers')
   .controller 'ProjectController', ['$scope', '$state', 'toaster', 'TaskService',
     ($scope, $state, toaster, TaskService) ->
+
+      # Init tasks
+      $scope.tasks = $scope.project.tasks
+
       updateTasks = ->
         $scope.tasks = TaskService.getTasksByProject($scope.project).$object
 
@@ -28,7 +32,5 @@ angular.module('app.controllers')
           )
 
         axis: 'y'
-
-      updateTasks()
 
   ]

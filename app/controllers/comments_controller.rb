@@ -3,9 +3,11 @@ class CommentsController < ApplicationController
   load_and_authorize_resource through: :task, shallow: true
 
   def index
+    render json: @comments
   end
 
   def show
+    render json: @comment
   end
 
   def update
@@ -16,6 +18,7 @@ class CommentsController < ApplicationController
   def create
     comment = @task.comments.create(comment_params)
     redirect_to comment_path(comment, format: :json)
+
   end
 
   def destroy

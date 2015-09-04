@@ -4,9 +4,11 @@ class TasksController < ApplicationController
   load_and_authorize_resource through: :project, shallow: true
 
   def index
+    render json: @tasks
   end
 
   def show
+    render json: @task
   end
 
   def update

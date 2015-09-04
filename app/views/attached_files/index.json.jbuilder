@@ -1,1 +1,0 @@
-json.array! @attached_files, :id, :attachment_url, :attachment_identifier
