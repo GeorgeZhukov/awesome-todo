@@ -26,7 +26,14 @@ RSpec.feature "Comments", type: :feature, js: true do
     expect(page).not_to have_content comment.text
   end
 
-  xscenario "A user can update comment" do
-
+  scenario "A user can update comment" do
+    comment = create :comment, task: task
+    comment_attrs = attributes_for :comment
+    within "comment" do
+      find(".editable").click
+      find(:css, ".editable-input").set(comment_attrs[:text])
+      find(".glyphicon-ok").click
+    end
+    expect(page).to have_content comment_attrs[:text]
   end
 end
