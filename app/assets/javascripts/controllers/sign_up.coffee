@@ -1,6 +1,6 @@
 angular.module('app.controllers')
-  .controller 'SignUpController', ['$scope', '$auth', '$state', 'toaster',
-    ($scope, $auth, $state, toaster) ->
+  .controller 'SignUpController', ['$scope', '$auth', 'toaster',
+    ($scope, $auth, toaster) ->
       $scope.signUp = ->
         $auth.submitRegistration($scope.signUpForm)
         .catch (resp) ->

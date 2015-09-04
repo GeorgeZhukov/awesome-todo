@@ -1,6 +1,6 @@
 angular.module('app.controllers')
-  .controller 'TaskController', ['$scope', '$state', 'CommentService', 'AttachedFileService', 'TaskService',
-    ($scope, $state, CommentService, AttachedFileService, TaskService) ->
+  .controller 'TaskController', ['$scope', 'CommentService', 'TaskService',
+    ($scope, CommentService, TaskService) ->
 
       # Init comments
       $scope.comments = $scope.task.comments

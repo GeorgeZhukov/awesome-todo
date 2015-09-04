@@ -1,6 +1,6 @@
 angular.module('app.controllers')
-.controller 'PageController', ['$scope', '$auth', '$state', 'toaster',
-  ($scope, $auth, $state, toaster) ->
+.controller 'PageController', ['$scope', '$state', 'toaster',
+  ($scope, $state, toaster) ->
     $scope.$on 'auth:validation-error', (resp) ->
       toaster.error 'Validation error.'
       $state.go 'signin'

@@ -1,6 +1,6 @@
 angular.module('app.controllers')
-  .controller 'ProjectController', ['$scope', '$state', 'toaster', 'TaskService',
-    ($scope, $state, toaster, TaskService) ->
+  .controller 'ProjectController', ['$scope', '$state', 'TaskService',
+    ($scope, $state, TaskService) ->
 
       # Init tasks
       $scope.tasks = $scope.project.tasks

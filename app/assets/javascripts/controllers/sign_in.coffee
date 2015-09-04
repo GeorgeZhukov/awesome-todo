@@ -1,6 +1,6 @@
 angular.module('app.controllers')
-  .controller 'SignInController', ['$scope', '$auth', '$state', 'toaster',
-    ($scope, $auth, $state, toaster)->
+  .controller 'SignInController', ['$scope', '$auth', 'toaster',
+    ($scope, $auth, toaster)->
 
       $scope.login = ->
         $auth.submitLogin($scope.loginForm)
