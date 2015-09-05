@@ -5,6 +5,7 @@ RSpec.describe CommentsController, type: :controller do
 
   let(:project) { create :project, user: @user }
   let(:task) { create :task, project: project }
+  let!(:comment) { create :comment, task: task }
 
   describe "GET #index" do
     it "assigns @comments" do
@@ -13,18 +14,31 @@ RSpec.describe CommentsController, type: :controller do
     end
   end
 
-  xdescribe "POST #index" do
-    it "creates a new comment" do
-      comment = attributes_for :comment
-      post :index, format: :json, task_id: task.id, text: comment[:text]
-      expect(Comment.last.text).to eq comment[:text]
+  describe "GET #show" do
+    it "assigns @comment" do
+      get :show, id: comment.id
+      expect(assigns(:comment)).not_to be_nil
     end
   end
 
-  xdescribe "DELETE" do
+  describe "POST #create" do
+    before do
+      comment = attributes_for :comment
+      post :create, task_id: task.id, text: comment[:text]
+    end
+
+    it "creates a new comment" do
+      expect(Comment.where(text: comment[:text]).count).to eq 1
+    end
+
+    it "redirects to new comment" do
+      expect(response).to redirect_to comment_path(Comment.last, format: :json)
+    end
+  end
+
+  describe "DELETE #destroy" do
     it "deletes the comment" do
-      comment = create :comment, task: task
-      delete :destroy, format: :json, task_id: task.id
+      delete :destroy, id: comment.id
       expect(Comment.count).to be_zero
     end
   end
