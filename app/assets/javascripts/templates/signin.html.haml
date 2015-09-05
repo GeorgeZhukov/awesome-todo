@@ -7,7 +7,9 @@
     .form-group
       %label{:for => "id_password"} Password
       %input#id_password.form-control{:placeholder => "Password", :type => "password", "ng-model" => "loginForm.password", :required=>""}/
-    %button.btn.btn-default{:type => "submit"} Sign In
 
-    %button.btn.btn-warning{:type=>"button", "ng-click"=>"authenticate('facebook')"} Sign In With Facebook
+    %button.btn.btn-default.btn-block{:type => "submit"} Sign In
+    %button.btn.btn-social.btn-facebook.btn-block{:type=>"button", "ng-click"=>"authenticate('facebook')"}
+      %i.fa.fa-facebook
+      Sign In With Facebook
 

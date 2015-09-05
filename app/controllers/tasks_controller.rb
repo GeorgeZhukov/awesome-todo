@@ -12,7 +12,9 @@ class TasksController < ApplicationController
   end
 
   def update
-    @task.update_attributes(task_params)
+    # debugger
+    result = @task.update_attributes(task_params)
+    # debugger
     render json: @task
   end
 

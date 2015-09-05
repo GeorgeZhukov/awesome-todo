@@ -25,7 +25,12 @@ angular.module('app.controllers')
         opacity: 0.7
         delay: 150
 
-        stop: (e, ui) ->
+        receive: (e, ui) ->
+          # Reassign task to another project
+          receivedTask = ui.item.sortable.model
+          receivedTask.project_id = $scope.project.id
+
+        update: (e, ui) ->
           _.map($scope.tasks, (task, index) ->
             task.position = index
             TaskService.updateTask(task)

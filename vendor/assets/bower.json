@@ -12,6 +12,7 @@
     "angular-ui-sortable": "latest",
     "angular-xeditable": "latest",
     "angular-file-upload": "latest",
-    "angular-loading-bar": "latest"
+    "angular-loading-bar": "latest",
+    "bootstrap-social": "latest"
   }
 }
