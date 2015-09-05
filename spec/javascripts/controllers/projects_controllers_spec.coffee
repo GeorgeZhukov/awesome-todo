@@ -4,13 +4,13 @@ describe "ProjectsController", ->
 
   beforeEach(module('app'))
   beforeEach ->
-    inject ($auth, $state, toaster, $rootScope, $controller)->
+    inject ($rootScope, $controller)->
       scope = $rootScope.$new()
 
       ctrl = $controller('ProjectsController', $scope: scope)
 
   it "has new project method", ->
-    expect(scope.newProject).toBeDefined()
+    expect(scope.new_project).toBeDefined()
 
   it "has remove project method", ->
     expect(scope.removeProject).toBeDefined()

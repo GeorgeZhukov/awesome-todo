@@ -4,7 +4,7 @@ describe "SignInController", ->
 
   beforeEach(module('app'))
   beforeEach ->
-    inject ($auth, $state, toaster, $rootScope, $controller)->
+    inject ($rootScope, $controller)->
       scope = $rootScope.$new()
 
       ctrl = $controller('SignInController', $scope: scope)
