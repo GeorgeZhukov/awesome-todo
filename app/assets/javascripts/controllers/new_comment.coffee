@@ -17,7 +17,7 @@ angular.module('app.controllers')
             else
               # Set upload url
               _.map($scope.uploader.queue,
-                (item)->item.url="/comments/" + comment.id + "/attached_files.json"
+                (item)->item.url="/api/v1/comments/" + comment.id + "/attached_files.json"
               )
 
               $scope.uploader.uploadAll()
