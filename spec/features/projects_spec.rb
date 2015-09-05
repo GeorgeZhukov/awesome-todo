@@ -15,7 +15,7 @@ RSpec.feature "Projects", type: :feature, js: true do
   end
 
   scenario "A user can create a new project" do
-    click_button "Add a new project"
+    click_button "Add Project"
     project_attrs = attributes_for :project
     fill_in "Project title", with: project_attrs[:title]
     click_button "Create"
