@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  mount_devise_token_auth_for 'User', at: 'auth'
 
   root 'home#index'
 
   scope :api do
     scope :v1 do
+      mount_devise_token_auth_for 'User', at: 'auth'
       resources :projects, except: [:new, :edit] do
         resources :tasks, except: [:new, :edit], shallow: true do
           resources :comments, except: [:new, :edit], shallow: true do

@@ -21,6 +21,14 @@ RSpec.describe CommentsController, type: :controller do
     end
   end
 
+  describe "PATCH #update" do
+    it "updates model" do
+      comment_attrs = attributes_for :comment
+      patch :update, id: comment.id, text: comment_attrs[:text]
+      expect(Comment.find(comment.id).text).to eq comment_attrs[:text]
+    end
+  end
+
   describe "POST #create" do
     before do
       comment = attributes_for :comment

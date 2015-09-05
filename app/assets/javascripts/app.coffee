@@ -18,21 +18,23 @@ angular.module('app', [
   .config(['$authProvider',
     ($authProvider)->
       $authProvider.configure(
-        apiUrl: ""
+        apiUrl: "/api/v1/"
       )
   ])
 
-  .config(['RestangularProvider', (RestangularProvider) ->
-    RestangularProvider
-    .setBaseUrl('/api/v1/')
-    .setRequestSuffix('.json')
-    .setErrorInterceptor (
-      (response, deferred, responseHandler)->
-        if response.status == 403
-          $http(response.config).then(responseHandler, deferred.reject)
-          location.href = "/#/"
-          return false
-    )
+  .config(['RestangularProvider',
+    (RestangularProvider) ->
+      RestangularProvider
+        .setBaseUrl('/api/v1/')
+        .setRequestSuffix('.json')
+        .setErrorInterceptor (
+          (response, deferred, responseHandler)->
+            if response.status == 403
+              # todo: maybe resend request
+              $http(response.config).then(responseHandler, deferred.reject)
+              location.href = "/#/"
+              return false
+        )
   ])
 
   .config(['$stateProvider', '$urlRouterProvider',
@@ -55,14 +57,14 @@ angular.module('app', [
           templateUrl: 'projects.html',
           controller: 'ProjectsController',
           resolve:
-            auth: ($auth) -> $auth.validateUser()
+            auth: ['$auth', ($auth) -> $auth.validateUser()]
 
         .state 'new_project',
           url: '/projects/new',
           templateUrl: 'new_project.html',
           controller: 'NewProjectController',
           resolve:
-            auth: ($auth) -> $auth.validateUser()
+            auth: ['$auth', ($auth) -> $auth.validateUser()]
 
   ])
 
@@ -72,8 +74,6 @@ angular.module('app', [
       editableOptions.theme = 'bs3';
   ])
 
-
-
   .directive 'project', ->
     templateUrl: "_project.html"
 
@@ -82,4 +82,3 @@ angular.module('app', [
 
   .directive 'comment', ->
     templateUrl: "_comment.html"
-
