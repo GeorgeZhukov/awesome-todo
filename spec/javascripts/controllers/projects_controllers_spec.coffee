@@ -1,5 +1,5 @@
 
-describe "ProjectsCtrl", ->
+describe "ProjectsController", ->
   scope = {}
 
   beforeEach(module('app'))
@@ -7,7 +7,13 @@ describe "ProjectsCtrl", ->
     inject ($auth, $state, toaster, $rootScope, $controller)->
       scope = $rootScope.$new()
 
-      ctrl = $controller('ProjectsCtrl', $scope: scope)
+      ctrl = $controller('ProjectsController', $scope: scope)
 
-  it "has projects", ->
-#    expect(scope.projects).toBeDefined()
+  it "has new project method", ->
+    expect(scope.newProject).toBeDefined()
+
+  it "has remove project method", ->
+    expect(scope.removeProject).toBeDefined()
+
+  it "has sortableOptions", ->
+    expect(scope.sortableOptions).toBeDefined()

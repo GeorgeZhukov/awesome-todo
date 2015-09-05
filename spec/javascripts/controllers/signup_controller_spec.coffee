@@ -1,5 +1,5 @@
 
-describe "SignUpCtrl", ->
+describe "SignUpController", ->
   scope = {}
 
   beforeEach(module('app'))
@@ -7,7 +7,7 @@ describe "SignUpCtrl", ->
     inject ($auth, $state, toaster, $rootScope, $controller)->
       scope = $rootScope.$new()
 
-      ctrl = $controller('SignUpCtrl', $scope: scope)
+      ctrl = $controller('SignUpController', $scope: scope)
 
   it "has sign up method", ->
     expect(scope.signUp).toBeDefined()

@@ -1,5 +1,5 @@
 
-describe "SignInCtrl", ->
+describe "SignInController", ->
   scope = {}
 
   beforeEach(module('app'))
@@ -7,7 +7,7 @@ describe "SignInCtrl", ->
     inject ($auth, $state, toaster, $rootScope, $controller)->
       scope = $rootScope.$new()
 
-      ctrl = $controller('SignInCtrl', $scope: scope)
+      ctrl = $controller('SignInController', $scope: scope)
 
   it "has login", ->
     expect(scope.login).toBeDefined()
