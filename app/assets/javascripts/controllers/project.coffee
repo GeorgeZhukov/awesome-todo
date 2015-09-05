@@ -1,6 +1,12 @@
 angular.module('app.controllers')
-  .controller 'ProjectController', ['$scope', '$state', 'TaskService',
-    ($scope, $state, TaskService) ->
+  .controller 'ProjectController', ['$scope', '$state', '$filter', 'TaskService',
+    ($scope, $state, $filter, TaskService) ->
+
+      # Convert date string to date object
+      _.map($scope.project.tasks, (task)->
+        if task.deadline
+          task.deadline = new Date(task.deadline)
+      )
 
       # Init tasks
       $scope.tasks = $scope.project.tasks

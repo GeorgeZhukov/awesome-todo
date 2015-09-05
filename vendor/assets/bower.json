@@ -13,6 +13,7 @@
     "angular-xeditable": "latest",
     "angular-file-upload": "latest",
     "angular-loading-bar": "latest",
-    "bootstrap-social": "latest"
+    "bootstrap-social": "latest",
+    "angular-bootstrap": "latest"
   }
 }

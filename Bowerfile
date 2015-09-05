@@ -11,4 +11,5 @@ asset 'angular-xeditable'
 asset 'angular-file-upload'
 asset 'angular-loading-bar'
 asset 'bootstrap-social'
+asset 'angular-bootstrap'
 # vim: ft=ruby

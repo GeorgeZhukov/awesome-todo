@@ -68,9 +68,11 @@ angular.module('app', [
 
   ])
 
-  .run(['$state', '$auth', 'editableOptions',
-    ($state, $auth, editableOptions) ->
+  .run(['$state', '$auth', 'editableOptions', 'editableThemes',
+    ($state, $auth, editableOptions, editableThemes) ->
       $auth.validateUser().then(-> $state.go 'projects')
+      editableThemes.bs3.inputClass = 'input-sm'
+      editableThemes.bs3.buttonsClass = 'btn-sm'
       editableOptions.theme = 'bs3';
   ])
 

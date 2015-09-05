@@ -1,4 +1,8 @@
+%h2.text-center TODO List
+
 .projects{"ng-model"=>"projects", "ui-sortable"=>"sortableOptions"}
   %project.center-block.slide-top{"ng-controller"=>"ProjectController", "ng-repeat"=>"project in projects", "ng-class"=>"animation"}
 
-%button.btn.btn-success.center-block{"ng-click"=>"new_project()"} Add a new project
+%button.btn.btn-success.btn-lg.center-block{"ng-click"=>"new_project()"}
+  %i.fa.fa-plus
+  Add Project

@@ -9,7 +9,6 @@ class Task < ActiveRecord::Base
 
   before_save do
     init_position
-    init_deadline
   end
 
   private
@@ -17,12 +16,6 @@ class Task < ActiveRecord::Base
     unless self.position
       self.position = self.project.tasks.minimum(:position) || 0
       self.position -= 1 # Move up
-    end
-  end
-
-  def init_deadline
-    unless self.deadline
-      self.deadline = DateTime.now + 5.days
     end
   end
 

@@ -19,6 +19,18 @@ body {
 
 }
 
+.sign-up-form {
+  width: 300px;
+  background-color: #00b3ee;
+  padding: 20px;
+  margin-top: 100px;
+
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+
+}
+
 .new-project {
   background-color: #00b3ee;
   width: 300px;
@@ -42,6 +54,8 @@ project {
   border-bottom-right-radius: 10px;
 
   -webkit-box-shadow: 0 0 2px #242424;
+  -moz-box-shadow:  0 0 2px #242424;
+  box-shadow:  0 0 2px #242424;
   //-moz-box-shadow:  hoff voff blur color;
   //box-shadow:  hoff voff blur color;
 
