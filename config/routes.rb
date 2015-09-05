@@ -3,10 +3,14 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
-  resources :projects do
-    resources :tasks, shallow: true do
-      resources :comments, shallow: true do
-        resources :attached_files, shallow: true
+  scope :api do
+    scope :v1 do
+      resources :projects, except: [:new, :edit] do
+        resources :tasks, except: [:new, :edit], shallow: true do
+          resources :comments, except: [:new, :edit], shallow: true do
+            resources :attached_files, except: [:new, :edit], shallow: true
+          end
+        end
       end
     end
   end

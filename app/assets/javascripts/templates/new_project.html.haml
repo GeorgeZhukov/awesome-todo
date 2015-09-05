@@ -4,7 +4,7 @@
   %form{"ng-submit"=>"create()", "ng-init"=>"project={}"}
     .form-group
       %label{:for=>"title"} Project title
-      %input#title{"ng-model"=>"project.title", :required=>""}
+      %input#title{"ng-model"=>"project.title", :required=>"", :autofocus=>""}
 
     %button.btn.btn-success.btn-block{:type=>"submit"}
       %span.fa.fa-plus

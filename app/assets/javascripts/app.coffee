@@ -24,7 +24,7 @@ angular.module('app', [
 
   .config(['RestangularProvider', (RestangularProvider) ->
     RestangularProvider
-    .setBaseUrl('/')
+    .setBaseUrl('/api/v1/')
     .setRequestSuffix('.json')
     .setErrorInterceptor (
       (response, deferred, responseHandler)->

@@ -13,14 +13,4 @@ class Project < ActiveRecord::Base
       self.position -= 1 # Move up
     end
   end
-
-  def to_builder
-    Jbuilder.new do |project|
-      project.(self, :id, :title, :position)
-      project.tasks tasks do |task|
-        project.task = task.to_builder
-      end
-    end
-
-  end
 end

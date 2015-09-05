@@ -8,18 +8,22 @@ class Task < ActiveRecord::Base
   validates :project, presence: true
 
   before_save do
+    init_position
+    init_deadline
+  end
+
+  private
+  def init_position
     unless self.position
       self.position = self.project.tasks.minimum(:position) || 0
       self.position -= 1 # Move up
     end
   end
 
-  def to_builder
-    Jbuilder.new do |task|
-      task.(self, :id, :title, :position)
-      task.comments comments do |comment|
-        task.comment = comment.to_builder
-      end
+  def init_deadline
+    unless self.deadline
+      self.deadline = DateTime.now + 5.days
     end
   end
+
 end
