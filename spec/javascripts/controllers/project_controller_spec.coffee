@@ -1,11 +1,15 @@
 
-xdescribe "ProjectController", ->
+describe "ProjectController", ->
   scope = {}
 
   beforeEach(module('app'))
   beforeEach ->
-    inject ($auth, $state, toaster, $rootScope, $controller)->
+    inject ($rootScope, $controller)->
       scope = $rootScope.$new()
+
+      scope.project = {
+        tasks: []
+      }
 
       ctrl = $controller('ProjectController', $scope: scope)
 

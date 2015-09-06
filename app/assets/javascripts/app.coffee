@@ -18,7 +18,7 @@ angular.module('app', [
   .config(['$authProvider',
     ($authProvider)->
       $authProvider.configure(
-        apiUrl: "/api/v1/"
+        apiUrl: ""
       )
   ])
 

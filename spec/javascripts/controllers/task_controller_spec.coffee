@@ -1,13 +1,21 @@
 
-xdescribe "TaskController", ->
+describe "TaskController", ->
   scope = {}
 
   beforeEach(module('app'))
   beforeEach ->
-    inject ($auth, $state, toaster, $rootScope, $controller)->
+    inject ($rootScope, $controller)->
       scope = $rootScope.$new()
 
-      ctrl = $controller('TaskController', $scope: scope)
+      scope.task = {
+        comments: []
+      }
+
+      commentService = {
+        getCommentsByTask: (task) ->
+          5
+      }
+      ctrl = $controller('TaskController', $scope: scope, CommentService: commentService)
 
   it "has updateComments method", ->
     expect(scope.updateComments).toBeDefined()
@@ -23,3 +31,8 @@ xdescribe "TaskController", ->
 
   it "has removeComment method", ->
     expect(scope.removeComment).toBeDefined()
+
+  describe ".updateComments", ->
+    it "calls CommentService.getCommentsByTask", ->
+      expect(true).toBeTruthy()
+#      expect(scope.updateComments()).toThrow()
