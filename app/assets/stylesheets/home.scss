@@ -3,8 +3,20 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-  //background: linear-gradient(to bottom, #e0e0e0 0%, #eaf2de 0%, #d6dbc9 38%, #ffa500 63%, #ffa830 100%);
-  background-color: #ffffff !important;
+  background-image: image_url('bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#user {
+  margin-top: 10px;
+  margin-right: 40px;
+  background-color: #00b3ee;
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 .login-form {
@@ -43,6 +55,11 @@ body {
 
 }
 
+.btn-add-project {
+  background-image: image_url('project_header_bg.png') !important;
+  color: #ffffff;
+}
+
 project {
   width: 600px;
   display: block;
@@ -60,12 +77,12 @@ project {
   //box-shadow:  hoff voff blur color;
 
   .project-header {
-    background: linear-gradient(to bottom, #2aa3e0 0%, #1281bc 100%);
     padding: 10px 20px;
+    background-image: image_url('project_header_bg.png');
 
     .project-title {
       margin-left: 10px;
-      color: #464646;
+      color: #ffffff;
     }
 
     .project-buttons {
@@ -76,8 +93,12 @@ project {
   }
 
   .new-task {
-    background: linear-gradient(to bottom, #e0e0e0 0%, #a5a5a5 100%);
+    background-image: image_url('new_task_bg.png');
     padding: 10px;
+
+    .btn-add-task {
+      background-image: image_url('button_bg.png');
+    }
   }
 
   .project-body {
@@ -112,6 +133,11 @@ project {
       .task-title {
         font-size: 14px;
         margin-left: 10px;
+      }
+
+      &:hover {
+        background-color: #fcfed5;
+        cursor: pointer;
       }
 
       .task-buttons {

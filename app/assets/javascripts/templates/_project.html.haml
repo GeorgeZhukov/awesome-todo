@@ -10,9 +10,9 @@
       %span.input-group-btn
         %button.btn.btn-sm.btn-success{:type=>"submit"}
           %i.fa.fa-plus
-      %input.form-control.input-sm{:type=>"text", "ng-model"=>"newTask.title", :required=>""}
+      %input.form-control.input-sm{:type=>"text", "ng-model"=>"newTask.title", :required=>"", :placeholder=>"Start typing here to create a task..."}
       %span.input-group-btn
-        %button.btn.btn-sm.btn-success{:type=>"submit"} Add task
+        %button.btn.btn-sm.btn-success.btn-add-task{:type=>"submit"} Add task
 
 .project-body
   .tasks{"ng-model"=>"tasks", "ui-sortable"=>"sortableOptions"}
