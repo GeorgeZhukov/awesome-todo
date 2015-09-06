@@ -15,7 +15,7 @@ RSpec.feature "Comments", type: :feature, js: true do
     comment_attrs = attributes_for :comment
 
     click_button "Add comment"
-    fill_in "Comment text", with: comment_attrs[:text]
+    fill_in "Comment", with: comment_attrs[:text]
     click_button "Add comment"
 
   end
