@@ -9,13 +9,34 @@ body {
 }
 
 #user {
-  margin-top: 10px;
-  margin-right: 20px;
-  background-color: #00b3ee;
+  margin-top: 4px;
+  margin-right: 40px;
 
   img {
-    width: 24px;
-    height: 24px;
+    width: 16px;
+    height: 16px;
+  }
+
+  .left-side {
+    margin-right: -4px;
+    height: 20px;
+  }
+
+  .right-side {
+    margin-left: -4px;
+    height: 20px;
+  }
+
+  .block {
+    display: inline-block;
+    height: 20px;
+    background-color: #333333;
+    padding: 0 8px;
+
+    a {
+      color: #ffffff;
+      font-size: 11px;
+    }
   }
 }
 

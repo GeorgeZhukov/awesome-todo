@@ -10,11 +10,15 @@
     / Bootstrap
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
-  %body
-    #user.pull-right
-      = image_tag "//placehold.it/128x128"
-      %button.btn.btn-sm.btn-default{"ng-click"=>"signOut()"} Sign Out
-    .container{"ng-controller"=>"PageController"}
+  %body{"ng-controller"=>"PageController"}
+    #user.pull-right{"ng-show"=>"user.signedIn"}
+      = image_tag 'user_left_side.png', class: "left-side"
+      .block
+        %img.img-circle{"ng-src"=>"{{ user.image }}"}
+        %a{:href=>"#", "ng-click"=>"signOut()"} Sign out
+      = image_tag 'user_right_side.png', class: "right-side"
+    .clearfix
+    .container
       %toaster-container
       .view-frame.animate.animate-view{"ui-view" => ""}
         -#%a{:href => "https://github.com/GeorgeZhukov/awesome-todo"}
