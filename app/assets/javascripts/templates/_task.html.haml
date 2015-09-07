@@ -1,5 +1,5 @@
 .row
-  %input{:type=>"checkbox", "ng-checked"=>"task.done", "ng-click"=>"toggleTaskStatus(task)"}
+  %input{:type=>"checkbox", "ng-checked"=>"task.done", "ng-click"=>"toggleTaskStatus(task)", :style=>"border-right: 1px solid #000;"}
   %span.task-title{"editable-text"=>"task.title", "onaftersave"=>"save()"}= "{{ task.title }}"
   .task-buttons.pull-right
     %span.glyphicon.glyphicon-time
@@ -7,8 +7,8 @@
     %i.fa.fa-comments{"ng-click"=>"activateTask(task)"}
     %i.fa.fa-trash{"ng-click"=>"removeTask(task)"}
 
-.comments{"ng-if"=>"task == activated_task", "ng-class"=>"animation"}
-  %comment.slide-top{"ng-repeat"=>"comment in comments", "ng-class"=>"animation"}
+.comments{"ng-if"=>"task == activated_task"}
+  %comment.toggle{"ng-repeat"=>"comment in comments", "ng-class"=>"animation"}
 
   %h4 New comment
   %form.form{"ng-init"=>"newComment = {}", "ng-submit"=>"create()", "ng-controller"=>"NewCommentController"}
