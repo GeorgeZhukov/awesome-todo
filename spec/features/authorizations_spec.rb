@@ -11,7 +11,7 @@ RSpec.feature "Authorizations", type: :feature, js: true do
   scenario "A user can sign out" do
     login
     expect(page).to have_content "You have successfully logged in by email."
-    click_button "Sign Out"
+    click_link "Sign out"
     expect(page).to have_content "You have logged out."
   end
 end
