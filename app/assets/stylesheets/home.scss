@@ -39,16 +39,23 @@ body {
   }
 }
 
-.login-form {
+.dialog-form {
   width: 300px;
   background-color: #868686;
   color: #fafafa;
   padding: 20px;
-  margin-top: 100px;
 
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
+
+  input {
+    color: #464646;
+  }
+}
+
+.login-form {
+  margin-top: 100px;
 
   .sign-up-block {
     margin-top: 10px;
@@ -61,27 +68,11 @@ body {
 }
 
 .sign-up-form {
-  width: 300px;
-  background-color: #868686;
-  padding: 20px;
   margin-top: 100px;
-  color: #fafafa;
-
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-
 }
 
 .new-project {
-  background-color: #00b3ee;
-  width: 300px;
-  padding: 20px;
   margin-top: 80px;
-
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
 
 }
 
