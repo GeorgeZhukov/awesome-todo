@@ -11,6 +11,7 @@ RSpec.feature "AttachedFiles", type: :feature, js: true do
 
   scenario "A user can see attached files" do
     login(user)
+    find(".fa-comments").click
     expect(page).to have_content attached_file.attachment_identifier
   end
 end

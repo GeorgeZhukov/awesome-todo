@@ -4,26 +4,25 @@
   .task-buttons.pull-right
     %span.glyphicon.glyphicon-time
     %span{"editable-date"=>"task.deadline", "onaftersave"=>"save()"}= "{{ (task.deadline | date: 'dd/MM') || 'set'}}"
-    %i.fa.fa-comment{""=>""}
+    %i.fa.fa-comments{"ng-click"=>"activateTask(task)"}
     %i.fa.fa-trash{"ng-click"=>"removeTask(task)"}
 
-.comments
+.comments{"ng-if"=>"task == activated_task", "ng-class"=>"animation"}
   %comment.slide-top{"ng-repeat"=>"comment in comments", "ng-class"=>"animation"}
 
-%form.form{"ng-init"=>"newComment = {}", "ng-submit"=>"create()", "ng-controller"=>"NewCommentController"}
-  .form-group
-    %label
-      Comment
-      %input{"ng-model"=>"newComment.text", :required=>""}
+  %h4 New comment
+  %form.form{"ng-init"=>"newComment = {}", "ng-submit"=>"create()", "ng-controller"=>"NewCommentController"}
+    .form-group
+      %input.form-control{"ng-model"=>"newComment.text", :required=>"", :placeholder=>"Type your comment here..."}
 
-  .form-group
-    %input{:type=>"file", "nv-file-select"=>"", :multiple=>"", :uploader=>"uploader"}
-    %br
-    %ul.attachments.list-inline
-      %li.attached-file{"ng-repeat"=>"item in uploader.queue"}
-        %span
-          %i.fa.fa-file
-          %span{"ng-bind"=>"item.file.name"}
-          %i.fa.fa-trash{"ng-click"=>"uploader.removeFromQueue(item)"}
+    .form-group
+      %input{:type=>"file", "nv-file-select"=>"", :multiple=>"", :uploader=>"uploader"}
+      %br
+      %ul.attachments.list-inline
+        %li.attached-file{"ng-repeat"=>"item in uploader.queue"}
+          %span
+            %i.fa.fa-file
+            %span{"ng-bind"=>"item.file.name"}
+            %i.fa.fa-trash{"ng-click"=>"uploader.removeFromQueue(item)"}
 
-  %button.btn.btn-sm.btn-info{:type=>"submit"} Add comment
+    %button.btn.btn-sm.btn-info{:type=>"submit"} Add comment
