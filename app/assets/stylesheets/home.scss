@@ -19,12 +19,11 @@ body {
 
   .left-side {
     margin-right: -4px;
-    height: 20px;
+
   }
 
   .right-side {
     margin-left: -4px;
-    height: 20px;
   }
 
   .block {
@@ -42,7 +41,8 @@ body {
 
 .login-form {
   width: 300px;
-  background-color: #00b3ee;
+  background-color: #868686;
+  color: #fafafa;
   padding: 20px;
   margin-top: 100px;
 
@@ -50,13 +50,22 @@ body {
   -moz-border-radius: 10px;
   border-radius: 10px;
 
+  .sign-up-block {
+    margin-top: 10px;
+
+    .btn-sign-up {
+      color: #242424;
+    }
+  }
+
 }
 
 .sign-up-form {
   width: 300px;
-  background-color: #00b3ee;
+  background-color: #868686;
   padding: 20px;
   margin-top: 100px;
+  color: #fafafa;
 
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
