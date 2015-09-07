@@ -13,7 +13,9 @@ class TasksController < ApplicationController
 
   def update
     new_params = task_params
-    new_params[:project_id] = new_params.delete :project # rename project to project_id
+    if new_params.has_key?(:project)
+      new_params[:project_id] = new_params.delete :project # rename project to project_id
+    end
 
     @task.update_attributes(new_params)
     render json: @task
