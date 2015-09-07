@@ -34,7 +34,7 @@ angular.module('app.controllers')
         receive: (e, ui) ->
           # Reassign task to another project
           receivedTask = ui.item.sortable.model
-          receivedTask.project_id = $scope.project.id
+          receivedTask.project = $scope.project.id
 
         update: (e, ui) ->
           _.map($scope.tasks, (task, index) ->

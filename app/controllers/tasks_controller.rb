@@ -12,9 +12,10 @@ class TasksController < ApplicationController
   end
 
   def update
-    # debugger
-    result = @task.update_attributes(task_params)
-    # debugger
+    new_params = task_params
+    new_params[:project_id] = new_params.delete :project # rename project to project_id
+
+    @task.update_attributes(new_params)
     render json: @task
   end
 
@@ -30,6 +31,6 @@ class TasksController < ApplicationController
 
   private
   def task_params
-    params.permit(:title, :position, :project_id, :done, :deadline)
+    params.permit(:title, :position, :project, :done, :deadline)
   end
 end
