@@ -36,6 +36,8 @@ angular.module('app.controllers')
       $scope.save = ->
         $scope.project.patch()
 
+      $scope.hasReceivedTask = no
+
       $scope.sortableOptions =
         connectWith: '.tasks'
         opacity: 0.7
@@ -45,8 +47,17 @@ angular.module('app.controllers')
           # Reassign task to another project
           receivedTask = ui.item.sortable.model
           receivedTask.project = $scope.project.id
+          $scope.hasReceivedTask = yes
 
         update: (e, ui) ->
+          if $scope.hasReceivedTask
+            _.map($scope.tasks, (task, index) ->
+              task.position = index
+              TaskService.updateTask(task)
+            )
+            $scope.hasReceivedTask = no
+
+        stop: (e, ui) ->
           _.map($scope.tasks, (task, index) ->
             task.position = index
             TaskService.updateTask(task)
