@@ -53,7 +53,7 @@ angular.module('app.controllers')
         receive: (e, ui) ->
           # Reassign task to another project
           receivedTask = ui.item.sortable.model
-          receivedTask.project = $scope.project.id
+          receivedTask.project_id = $scope.project.id
           hasReceivedTask=yes
 
         update: (e, ui) ->
