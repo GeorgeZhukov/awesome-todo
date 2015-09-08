@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe AttachedFilesController, type: :controller do
   login_user
+  can_manage_all
 
   let(:project) { create :project, user: @user }
   let(:task) { create :task, project: project }
@@ -11,6 +12,15 @@ RSpec.describe AttachedFilesController, type: :controller do
     it "assigns @attached_files" do
       get :index, format: :json, comment_id: comment.id
       expect(assigns(:attached_files)).not_to be_nil
+    end
+
+    context "cancan doesn't allow index" do
+      before do
+        @ability.cannot :read, AttachedFile
+        get :index, format: :json, comment_id: comment.id
+      end
+
+      it { expect(response).to be_forbidden }
     end
   end
 

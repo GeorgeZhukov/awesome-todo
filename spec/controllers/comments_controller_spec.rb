@@ -2,15 +2,26 @@ require 'rails_helper'
 
 RSpec.describe CommentsController, type: :controller do
   login_user
+  can_manage_all
 
   let(:project) { create :project, user: @user }
   let(:task) { create :task, project: project }
   let!(:comment) { create :comment, task: task }
 
+
   describe "GET #index" do
     it "assigns @comments" do
       get :index, format: :json, task_id: task.id
       expect(assigns(:comments)).not_to be_nil
+    end
+
+    context "cancan doesn't allow index" do
+      before do
+        @ability.cannot :read, Comment
+        get :index, format: :json, task_id: task.id
+      end
+
+      it { expect(response).to be_forbidden }
     end
   end
 

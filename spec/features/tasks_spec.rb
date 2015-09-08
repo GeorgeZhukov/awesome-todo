@@ -4,7 +4,7 @@ RSpec.feature "Tasks", type: :feature, js: true do
   include FeatureHelper
 
   given(:user) { create :user }
-  given!(:project) { create :project, user: user }
+  given(:project) { create :project, user: user }
   given!(:task) { create :task, project: project }
 
   before do
