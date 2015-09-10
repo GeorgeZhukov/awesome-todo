@@ -69,7 +69,7 @@ RSpec.describe ProjectsController, type: :controller do
 
     context "cancan doesn't allow delete" do
       before do
-        @ability.cannot :delete, Project
+        @ability.cannot :destroy, Project
         delete :destroy, id: project.id, format: :json
       end
 
