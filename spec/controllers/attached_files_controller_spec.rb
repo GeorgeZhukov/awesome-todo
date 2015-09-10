@@ -25,10 +25,20 @@ RSpec.describe AttachedFilesController, type: :controller do
   end
 
   describe "POST #create" do
+    let(:file) { fixture_file_upload('files/example_image.jpg') }
+
     it "creates a new attached file" do
-      file = fixture_file_upload('files/example_image.jpg')
       post :create, comment_id: comment.id, file: file
       expect(AttachedFile.count).to eq 1
+    end
+
+    context "cancan doesn't allow create" do
+      before do
+        @ability.cannot :create, AttachedFile
+        post :create, comment_id: comment.id, file: file
+      end
+
+      it { expect(response).to be_forbidden }
     end
   end
 end
